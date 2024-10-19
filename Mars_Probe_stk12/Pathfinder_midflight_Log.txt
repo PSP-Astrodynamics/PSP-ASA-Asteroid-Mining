@@ -1,0 +1,68 @@
+Astrogator Log File; DriverMCS: Mission_Control_Sequence
+-------------------------------------------------------------
+
+
+----------------------------------------------
+Begin targeter profile Target_Sequence.Differential_Corrector
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                               Current Value           Last Update         Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -3836.768084060098 m/sec  0.000000000000 m/sec -3836.768084060098 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z    -0.017533012251 m/sec  0.000000000000 m/sec    -0.017533012251 m/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Maneuver : Eccentricity  0.000000000000
+
+
+
+---Running one step of the differential corrector...
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                               Current Value           Last Update         Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -3836.768084060098 m/sec  0.000000000000 m/sec -3836.768084060098 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z    -0.017533012251 m/sec  0.000000000000 m/sec    -0.017533012251 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                      Current Value         Desired      Difference       Tolerance
+Maneuver : Eccentricity  0.000628511855  0.000000000000  0.000628511855  0.010000000000
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                               Current Value           Last Update         Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -3836.768084060098 m/sec  0.000000000000 m/sec -3836.768084060098 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z    -0.017533012251 m/sec  0.000000000000 m/sec    -0.017533012251 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                      Current Value         Desired      Difference       Tolerance
+Maneuver : Eccentricity  0.000628511855  0.000000000000  0.000628511855  0.010000000000
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Target_Sequence.Differential_Corrector
