@@ -1,0 +1,104 @@
+Astrogator Log File; DriverMCS: Mission_Control_Sequence
+-------------------------------------------------------------
+
+
+----------------------------------------------
+Begin targeter profile l4_orbit_corrector.Target_Sequence.L4orbit_corrector
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000000000 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Propagate : VyL4  1.000000000000 km/sec
+
+
+
+---Running one step of the differential corrector...
+
+-------------------------------------------------------------
+Iteration =   1
+Unscaled Intermediate Constraints:
+Name               Current Value                Desired             Difference              Tolerance
+Propagate : VyL4  0.000000000000 km/sec  1.000000000000 km/sec -1.000000000000 km/sec  0.100000000000 km/sec
+
+
+
+Performing one Newton-Raphson Step...
+
+Perturbation evaluation +1
+Controls:
+Name                                                    Value          Perturbation       Scaled Perturbation
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.050000000000 m/sec  0.050000000000 m/sec      0.050000000000
+
+Constraints:
+Name                       Value                 Change              Scaled Change
+Propagate : VyL4  0.000000000000 km/sec  0.000000000000 km/sec                   0
+
+
+Partial derivative matrix (scaled) :
+
+                    0
+
+Newton Step Done...
+
+DC proposed step:
+Name                                                   Scaled        Unscaled
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000000000  0.000000000000 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                   Scaled        Unscaled
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000000000  0.000000000000 m/sec
+
+=================================
+Iteration Interrupted            
+=================================
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000000000 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name               Current Value                Desired             Difference              Tolerance
+Propagate : VyL4  0.000000000000 km/sec  1.000000000000 km/sec -1.000000000000 km/sec  0.100000000000 km/sec
+
+
+
+--------------------------------------------------------
+
+***Targeting aborted***
+
+
+***Targeting aborted***
+
+
+--------------------------------------------------------
+
+***Error running sequence or in evaluating results.
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000000000 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name               Current Value                Desired             Difference              Tolerance
+Propagate : VyL4  0.000000000000 km/sec  1.000000000000 km/sec -1.000000000000 km/sec  0.100000000000 km/sec
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile l4_orbit_corrector.Target_Sequence.L4orbit_corrector

@@ -1,0 +1,13 @@
+<?xml version = "1.0" standalone = "yes"?>
+<TimelineLine_Prefs STK_version = "12.2.0">
+    <Views Type = "Content">
+        <ContentView Name = "Scenario Availability">
+            <Row ClassName = "Scenario" ComponentName = "AvailabilityIntervals" DisplayName = "SunEarth_L1 AvailabilityIntervals" IsDefaultName = "True" IsExpanded = "False" IsGroup = "False" IsHidden = "False" Path = "/Application/STK/Scenario/SunEarth_L1" Type = "IntervalList">
+                <Interval Name = "SunEarth_L1 AvailabilityIntervals" StartTime = "15 Jan 2018 10:00:00.000" StopTime = "15 Aug 2019 10:00:00.000" />
+            </Row>
+        </ContentView>
+    </Views>
+    <Views Type = "Time">
+        <TimeView FullViewRulerStartTime = "0.000000" FullViewRulerStopTime = "0.000000" GlobalIntervalComp = "AnalysisInterval" GlobalIntervalCompPath = "/Application/STK/Scenario/SunEarth_L1" GlobalStartOffset = "0.000000" GlobalStartTime = "15 Jan 2018 10:00:00.000" GlobalStopOffset = "0.000000" GlobalStopTime = "15 Aug 2019 10:00:00.000" MaxFullViewTime = "0.000000" MinFullViewTime = "0.000000" Name = "Scenario Analysis Period" ViewportStartTime = "0.000000" ViewportStopTime = "0.000000" />
+    </Views>
+</TimelineLine_Prefs>

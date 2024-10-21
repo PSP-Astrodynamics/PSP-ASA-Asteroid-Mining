@@ -1,0 +1,1066 @@
+Astrogator Log File; DriverMCS: Mission_Control_Sequence
+-------------------------------------------------------------
+
+
+----------------------------------------------
+Begin targeter profile Target_Plane_Crossing.Anti-Sun_Line
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                            Current Value         Last Update     Total Correction
+Initial_State : InitialState.Keplerian.RAAN  342.703420842714 deg  0.000000000000 deg   0.000000000000 deg
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Coast : Right_Asc  0.000000000000 deg
+
+
+
+---Running one step of the differential corrector...
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                            Current Value         Last Update     Total Correction
+Initial_State : InitialState.Keplerian.RAAN  342.703420842714 deg  0.000000000000 deg   0.000000000000 deg
+
+
+Unscaled Intermediate Constraints:
+Name                Current Value             Desired          Difference           Tolerance
+Coast : Right_Asc  0.062655714600 deg  0.000000000000 deg  0.062655714600 deg  0.100000000000 deg
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                            Current Value         Last Update     Total Correction
+Initial_State : InitialState.Keplerian.RAAN  342.703420842714 deg  0.000000000000 deg   0.000000000000 deg
+
+
+Unscaled Intermediate Constraints:
+Name                Current Value             Desired          Difference           Tolerance
+Coast : Right_Asc  0.062655714600 deg  0.000000000000 deg  0.062655714600 deg  0.100000000000 deg
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Target_Plane_Crossing.Anti-Sun_Line
+----------------------------------------------
+Begin targeter profile Target_Plane_Crossing.First_Plane_Crossing
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                                           Current Value            Last Update        Total Correction
+L1_Leo_Injection_Thrust : ImpulsiveMnvr.Pointing.Cartesian.X  3.165393819404 km/sec  0.000000000000 km/sec   0.000000000000 km/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+z-x_Crossing_Plane : Vx_L1 -0.010000000000 km/sec
+
+
+
+---Running one step of the differential corrector...
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                                           Current Value            Last Update        Total Correction
+L1_Leo_Injection_Thrust : ImpulsiveMnvr.Pointing.Cartesian.X  3.165393819404 km/sec  0.000000000000 km/sec   0.000000000000 km/sec
+
+
+Unscaled Intermediate Constraints:
+Name                         Current Value                Desired             Difference              Tolerance
+z-x_Crossing_Plane : Vx_L1 -0.010007286963 km/sec -0.010000000000 km/sec -0.000007286963 km/sec  0.000100000000 km/sec
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                                           Current Value            Last Update        Total Correction
+L1_Leo_Injection_Thrust : ImpulsiveMnvr.Pointing.Cartesian.X  3.165393819404 km/sec  0.000000000000 km/sec   0.000000000000 km/sec
+
+
+Unscaled Intermediate Constraints:
+Name                         Current Value                Desired             Difference              Tolerance
+z-x_Crossing_Plane : Vx_L1 -0.010007286963 km/sec -0.010000000000 km/sec -0.000007286963 km/sec  0.000100000000 km/sec
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Target_Plane_Crossing.First_Plane_Crossing
+----------------------------------------------
+Begin targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -19.999976892990 m/sec  0.000000000000 m/sec   0.000023107010 m/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Prop_to_Plane_Cross : Vx_L1  0.000000000000 km/sec
+
+
+
+---Running one step of the differential corrector...
+
+-------------------------------------------------------------
+Iteration =   1
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.190823152239 km/sec  0.000000000000 km/sec -0.190823152239 km/sec  0.000050000000 km/sec
+
+
+
+Performing one Newton-Raphson Step...
+
+Perturbation evaluation +1
+Controls:
+Name                                                    Value          Perturbation       Scaled Perturbation
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -19.949976892990 m/sec  0.050000000000 m/sec      0.002500000000
+
+Constraints:
+Name                                  Value                 Change              Scaled Change
+Prop_to_Plane_Cross : Vx_L1 -0.189738555421 km/sec  0.001084596818 km/sec       1.08459681792
+
+
+Partial derivative matrix (scaled) :
+
+        433.838727169
+
+Newton Step Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.439848128552  8.796962571044 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.439848128552  8.796962571044 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -11.203014321945 m/sec  8.796962571044 m/sec   8.796985678055 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.053917392583 km/sec  0.000000000000 km/sec  0.053917392583 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   2
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.053917392583 km/sec  0.000000000000 km/sec  0.053917392583 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        556.420566407
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.096900430786 -1.938008615727 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.096900430786 -1.938008615727 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -13.141022937673 m/sec -1.938008615727 m/sec   6.858977062327 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.011354989859 km/sec  0.000000000000 km/sec  0.011354989859 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   3
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.011354989859 km/sec  0.000000000000 km/sec  0.011354989859 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        439.238529481
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.025851534181 -0.517030683627 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.025851534181 -0.517030683627 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -13.658053621299 m/sec -0.517030683627 m/sec   6.341946378701 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000776567946 km/sec  0.000000000000 km/sec -0.000776567946 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   4
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000776567946 km/sec  0.000000000000 km/sec -0.000776567946 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        469.278059831
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.001654814090  0.033096281804 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.001654814090  0.033096281804 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -13.624957339495 m/sec  0.033096281804 m/sec   6.375042660505 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000011215642 km/sec  0.000000000000 km/sec  0.000011215642 km/sec  0.000050000000 km/sec
+
+
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -13.624957339495 m/sec  0.033096281804 m/sec   6.375042660505 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000011215642 km/sec  0.000000000000 km/sec  0.000011215642 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -13.624957339495 m/sec  0.033096281804 m/sec   6.375042660505 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000011215642 km/sec  0.000000000000 km/sec  0.000011215642 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+----------------------------------------------
+Begin targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                            Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -13.624957339495 m/sec  0.000000000000 m/sec   6.375042660505 m/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Prop_to_Plane_Cross : Vx_L1  0.000000000000 km/sec
+
+
+
+---Running one step of the differential corrector...
+
+-------------------------------------------------------------
+Iteration =   1
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.311564332630 km/sec  0.000000000000 km/sec -0.311564332630 km/sec  0.000050000000 km/sec
+
+
+
+Performing one Newton-Raphson Step...
+
+Perturbation evaluation +1
+Controls:
+Name                                                    Value          Perturbation       Scaled Perturbation
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -13.574957339495 m/sec  0.050000000000 m/sec      0.002500000000
+
+Constraints:
+Name                                  Value                 Change              Scaled Change
+Prop_to_Plane_Cross : Vx_L1 -0.310927968883 km/sec  0.000636363747 km/sec      0.636363746699
+
+
+Partial derivative matrix (scaled) :
+
+         254.54549868
+
+Newton Step Done...
+
+DC proposed step:
+Name                                                  Scaled         Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  1.224002523109  24.480050462173 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled         Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.500000000000  10.000000000000 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value            Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -3.624957339495 m/sec  10.000000000000 m/sec  16.375042660505 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.098526818912 km/sec  0.000000000000 km/sec -0.098526818912 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   2
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.098526818912 km/sec  0.000000000000 km/sec -0.098526818912 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        426.075027436
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.231242885801  4.624857716018 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.231242885801  4.624857716018 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.999900376523 m/sec  4.624857716018 m/sec  20.999900376523 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.023109618120 km/sec  0.000000000000 km/sec  0.023109618120 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   3
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.023109618120 km/sec  0.000000000000 km/sec  0.023109618120 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        526.011585657
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.043933667528 -0.878673350560 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.043933667528 -0.878673350560 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.121227025964 m/sec -0.878673350560 m/sec  20.121227025964 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.002883368396 km/sec  0.000000000000 km/sec  0.002883368396 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   4
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.002883368396 km/sec  0.000000000000 km/sec  0.002883368396 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        460.381544775
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.006262997352 -0.125259947046 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.006262997352 -0.125259947046 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.004032921082 m/sec -0.125259947046 m/sec  19.995967078918 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000084694316 km/sec  0.000000000000 km/sec -0.000084694316 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   5
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000084694316 km/sec  0.000000000000 km/sec -0.000084694316 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        473.904513306
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.000178715994  0.003574319878 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.000178715994  0.003574319878 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.000458601204 m/sec  0.003574319878 m/sec  19.999541398796 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000000310442 km/sec  0.000000000000 km/sec  0.000000310442 km/sec  0.000050000000 km/sec
+
+
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.000458601204 m/sec  0.003574319878 m/sec  19.999541398796 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000000310442 km/sec  0.000000000000 km/sec  0.000000310442 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.000458601204 m/sec  0.003574319878 m/sec  19.999541398796 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000000310442 km/sec  0.000000000000 km/sec  0.000000310442 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+----------------------------------------------
+Begin targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.000458601204 m/sec  0.000000000000 m/sec  19.999541398796 m/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Prop_to_Plane_Cross : Vx_L1  0.000000000000 km/sec
+
+
+
+---Running one step of the differential corrector...
+
+-------------------------------------------------------------
+Iteration =   1
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.024630998287 km/sec  0.000000000000 km/sec  0.024630998287 km/sec  0.000050000000 km/sec
+
+
+
+Performing one Newton-Raphson Step...
+
+Perturbation evaluation +1
+Controls:
+Name                                                   Value          Perturbation       Scaled Perturbation
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.049541398796 m/sec  0.050000000000 m/sec      0.002500000000
+
+Constraints:
+Name                                  Value                 Change              Scaled Change
+Prop_to_Plane_Cross : Vx_L1  0.025620036861 km/sec  0.000989038575 km/sec      0.989038574804
+
+
+Partial derivative matrix (scaled) :
+
+        395.615429922
+
+Newton Step Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.062259953540 -1.245199070796 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.062259953540 -1.245199070796 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -1.245657672001 m/sec -1.245199070796 m/sec  18.754342327999 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.001029858355 km/sec  0.000000000000 km/sec  0.001029858355 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   2
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.001029858355 km/sec  0.000000000000 km/sec  0.001029858355 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        379.074165495
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.002716772728 -0.054335454560 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.002716772728 -0.054335454560 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -1.299993126561 m/sec -0.054335454560 m/sec  18.700006873439 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000042508750 km/sec  0.000000000000 km/sec  0.000042508750 km/sec  0.000050000000 km/sec
+
+
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -1.299993126561 m/sec -0.054335454560 m/sec  18.700006873439 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000042508750 km/sec  0.000000000000 km/sec  0.000042508750 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -1.299993126561 m/sec -0.054335454560 m/sec  18.700006873439 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000042508750 km/sec  0.000000000000 km/sec  0.000042508750 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+----------------------------------------------
+Begin targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -1.299993126561 m/sec  0.000000000000 m/sec  18.700006873439 m/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Prop_to_Plane_Cross : Vx_L1  0.000000000000 km/sec
+
+
+
+---Running one step of the differential corrector...
+
+-------------------------------------------------------------
+Iteration =   1
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.022991771152 km/sec  0.000000000000 km/sec -0.022991771152 km/sec  0.000050000000 km/sec
+
+
+
+Performing one Newton-Raphson Step...
+
+Perturbation evaluation +1
+Controls:
+Name                                                   Value          Perturbation       Scaled Perturbation
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -1.249993126561 m/sec  0.050000000000 m/sec      0.002500000000
+
+Constraints:
+Name                                  Value                 Change              Scaled Change
+Prop_to_Plane_Cross : Vx_L1 -0.021789731103 km/sec  0.001202040049 km/sec       1.20204004894
+
+
+Partial derivative matrix (scaled) :
+
+        480.816019575
+
+Newton Step Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.047818230292  0.956364605836 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.047818230292  0.956364605836 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.343628520724 m/sec  0.956364605836 m/sec  19.656371479276 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000624748171 km/sec  0.000000000000 km/sec -0.000624748171 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   2
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000624748171 km/sec  0.000000000000 km/sec -0.000624748171 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        467.750957004
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.001335642742  0.026712854840 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.001335642742  0.026712854840 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.316915665884 m/sec  0.026712854840 m/sec  19.683084334116 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000017867362 km/sec  0.000000000000 km/sec -0.000017867362 km/sec  0.000050000000 km/sec
+
+
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.316915665884 m/sec  0.026712854840 m/sec  19.683084334116 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000017867362 km/sec  0.000000000000 km/sec -0.000017867362 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.316915665884 m/sec  0.026712854840 m/sec  19.683084334116 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000017867362 km/sec  0.000000000000 km/sec -0.000017867362 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+----------------------------------------------
+Begin targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.316915665884 m/sec  0.000000000000 m/sec  19.683084334116 m/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Prop_to_Plane_Cross : Vx_L1  0.000000000000 km/sec
+
+
+
+---Running one step of the differential corrector...
+
+-------------------------------------------------------------
+Iteration =   1
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.010660567764 km/sec  0.000000000000 km/sec -0.010660567764 km/sec  0.000050000000 km/sec
+
+
+
+Performing one Newton-Raphson Step...
+
+Perturbation evaluation +1
+Controls:
+Name                                                   Value          Perturbation       Scaled Perturbation
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.266915665884 m/sec  0.050000000000 m/sec      0.002500000000
+
+Constraints:
+Name                                  Value                 Change              Scaled Change
+Prop_to_Plane_Cross : Vx_L1 -0.009771948107 km/sec  0.000888619657 km/sec      0.888619656769
+
+
+Partial derivative matrix (scaled) :
+
+        355.447862708
+
+Newton Step Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.029991930976  0.599838619529 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.029991930976  0.599838619529 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.282922953645 m/sec  0.599838619529 m/sec  20.282922953645 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000186412576 km/sec  0.000000000000 km/sec  0.000186412576 km/sec  0.000050000000 km/sec
+
+
+
+-------------------------------------------------------------
+Iteration =   2
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1  0.000186412576 km/sec  0.000000000000 km/sec  0.000186412576 km/sec  0.000050000000 km/sec
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        361.663286982
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.000515431294 -0.010308625870 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                  Scaled        Unscaled
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X -0.000515431294 -0.010308625870 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.272614327774 m/sec -0.010308625870 m/sec  20.272614327774 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000003513658 km/sec  0.000000000000 km/sec -0.000003513658 km/sec  0.000050000000 km/sec
+
+
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.272614327774 m/sec -0.010308625870 m/sec  20.272614327774 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000003513658 km/sec  0.000000000000 km/sec -0.000003513658 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                           Current Value           Last Update       Total Correction
+Sk_burn : ImpulsiveMnvr.Pointing.Cartesian.X  0.272614327774 m/sec -0.010308625870 m/sec  20.272614327774 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                          Current Value                Desired             Difference              Tolerance
+Prop_to_Plane_Cross : Vx_L1 -0.000003513658 km/sec  0.000000000000 km/sec -0.000003513658 km/sec  0.000050000000 km/sec
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Station_Keeping.Maintain_LPO.Differential_Corrector
