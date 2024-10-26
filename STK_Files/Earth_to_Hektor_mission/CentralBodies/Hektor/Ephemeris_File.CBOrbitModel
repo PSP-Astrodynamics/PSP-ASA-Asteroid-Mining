@@ -1,0 +1,35 @@
+<?xml version = "1.0" standalone = "yes"?>
+<VAR name = "Ephemeris_File">
+    <SCOPE Class = "CBOrbitModel">
+        <VAR name = "Version">
+            <STRING>&quot;1.0.0 a&quot;</STRING>
+        </VAR>
+        <VAR name = "STKVersion">
+            <INT>1220</INT>
+        </VAR>
+        <VAR name = "Description">
+            <STRING>&quot;Ephemeris File&quot;</STRING>
+        </VAR>
+        <VAR name = "Type">
+            <STRING>&quot;EFile&quot;</STRING>
+        </VAR>
+        <VAR name = "UserComment">
+            <STRING>&quot;Ephemeris File&quot;</STRING>
+        </VAR>
+        <VAR name = "ReadOnly">
+            <BOOL>false</BOOL>
+        </VAR>
+        <VAR name = "Clonable">
+            <BOOL>true</BOOL>
+        </VAR>
+        <VAR name = "Category">
+            <STRING>&quot;@Top&quot;</STRING>
+        </VAR>
+        <VAR name = "ShooterControls">
+            <LIST />
+        </VAR>
+        <VAR name = "EphemFileName">
+            <STRING>&quot;C:\Users\jwill\Documents\STK 12\Earth_to_Hektor_mission\CentralBodies\Hektor\hektor_results.e&quot;</STRING>
+        </VAR>
+    </SCOPE>
+</VAR>

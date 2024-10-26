@@ -1,0 +1,95 @@
+Astrogator Log File; DriverMCS: Mission_Control_Sequence
+-------------------------------------------------------------
+
+
+----------------------------------------------
+Begin targeter profile Astroid_miner_transfer_arc.Target_Sequence.Differential_Corrector
+
+Initial control parameters:
+
+Unscaled Controls:
+Name                                                 Current Value           Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X   30412.393660949001 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  -20594.534388145912 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z  -42517.763094048518 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.X  12625.075947479765 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.Y  -6878.773843947727 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.Z -11570.010243528501 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+Propagate : Rx -545839757.552769303322 km    
+Propagate : Ry -386369908.079767704010 km    
+Propagate : Rz -400503555.804497897625 km    
+Maneuver1 : Vx          8.881810894190 km/sec
+Maneuver1 : Vy         -7.560758770256 km/sec
+Maneuver1 : Vz         -5.319473923112 km/sec
+
+
+
+---Running one step of the differential corrector...
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Name                                                 Current Value           Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X   30412.393660949001 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  -20594.534388145912 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z  -42517.763094048518 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.X  12625.075947479765 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.Y  -6878.773843947727 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.Z -11570.010243528501 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                     Current Value                        Desired             Difference              Tolerance
+Propagate : Rx -545839757.564690947533 km     -545839757.552769303322 km     -0.011921691895 km      0.100000000000 km    
+Propagate : Ry -386369908.088448524475 km     -386369908.079767704010 km     -0.008680847168 km      0.100000000000 km    
+Propagate : Rz -400503555.811829984188 km     -400503555.804497897625 km     -0.007332031250 km      0.100000000000 km    
+Maneuver1 : Vx          8.881810893651 km/sec          8.881810894190 km/sec -0.000000000538 km/sec  0.000100000000 km/sec
+Maneuver1 : Vy         -7.560758770573 km/sec         -7.560758770256 km/sec -0.000000000316 km/sec  0.000100000000 km/sec
+Maneuver1 : Vz         -5.319473923178 km/sec         -5.319473923112 km/sec -0.000000000066 km/sec  0.000100000000 km/sec
+
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Name                                                 Current Value           Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X   30412.393660949001 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  -20594.534388145912 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z  -42517.763094048518 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.X  12625.075947479765 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.Y  -6878.773843947727 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver1 : ImpulsiveMnvr.Pointing.Cartesian.Z -11570.010243528501 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                     Current Value                        Desired             Difference              Tolerance
+Propagate : Rx -545839757.564690947533 km     -545839757.552769303322 km     -0.011921691895 km      0.100000000000 km    
+Propagate : Ry -386369908.088448524475 km     -386369908.079767704010 km     -0.008680847168 km      0.100000000000 km    
+Propagate : Rz -400503555.811829984188 km     -400503555.804497897625 km     -0.007332031250 km      0.100000000000 km    
+Maneuver1 : Vx          8.881810893651 km/sec          8.881810894190 km/sec -0.000000000538 km/sec  0.000100000000 km/sec
+Maneuver1 : Vy         -7.560758770573 km/sec         -7.560758770256 km/sec -0.000000000316 km/sec  0.000100000000 km/sec
+Maneuver1 : Vz         -5.319473923178 km/sec         -5.319473923112 km/sec -0.000000000066 km/sec  0.000100000000 km/sec
+
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+End targeter profile Astroid_miner_transfer_arc.Target_Sequence.Differential_Corrector

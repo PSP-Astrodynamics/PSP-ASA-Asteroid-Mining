@@ -1,0 +1,47 @@
+<?xml version = "1.0" standalone = "yes"?>
+<VAR name = "Triaxial_Ellipsoid">
+    <SCOPE Class = "CBShapeModel">
+        <VAR name = "Version">
+            <STRING>&quot;1.0.0 a&quot;</STRING>
+        </VAR>
+        <VAR name = "STKVersion">
+            <INT>1220</INT>
+        </VAR>
+        <VAR name = "Description">
+            <STRING>&quot;Triaxial Ellipsoid Shape Model&quot;</STRING>
+        </VAR>
+        <VAR name = "Type">
+            <STRING>&quot;TriaxialEllipsoid&quot;</STRING>
+        </VAR>
+        <VAR name = "UserComment">
+            <STRING>&quot;Triaxial Ellipsoid Shape Model&quot;</STRING>
+        </VAR>
+        <VAR name = "ReadOnly">
+            <BOOL>false</BOOL>
+        </VAR>
+        <VAR name = "Clonable">
+            <BOOL>true</BOOL>
+        </VAR>
+        <VAR name = "Category">
+            <STRING>&quot;&quot;</STRING>
+        </VAR>
+        <VAR name = "ShooterControls">
+            <LIST />
+        </VAR>
+        <VAR name = "a">
+            <QUANTITY Dimension = "DistanceUnit" Unit = "m">
+                <REAL>581100</REAL>
+            </QUANTITY>
+        </VAR>
+        <VAR name = "b">
+            <QUANTITY Dimension = "DistanceUnit" Unit = "m">
+                <REAL>577900</REAL>
+            </QUANTITY>
+        </VAR>
+        <VAR name = "c">
+            <QUANTITY Dimension = "DistanceUnit" Unit = "m">
+                <REAL>577700</REAL>
+            </QUANTITY>
+        </VAR>
+    </SCOPE>
+</VAR>
