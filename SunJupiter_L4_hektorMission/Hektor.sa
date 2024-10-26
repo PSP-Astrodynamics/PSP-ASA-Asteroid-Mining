@@ -22,7 +22,7 @@ BEGIN Satellite
 
             Format		 StkPL
             Covariance		 PosVel
-            Filename		 C:\Users\adrus\OneDrive\Desktop\Astrodynamics\hektor_results.e
+            Filename		 hektor_results.e
 
         END StkExternal
 
