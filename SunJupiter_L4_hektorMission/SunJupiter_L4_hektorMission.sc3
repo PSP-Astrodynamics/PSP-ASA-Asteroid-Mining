@@ -149,6 +149,7 @@ BEGIN SceneWindow
         BEGIN RecordMovie
             OutputFormat		 VIDEO
             SdfSelected		 No
+            Directory		 C:\Users\adrus\Downloads\PSP-ASA-Asteroid-Mining\SunJupiter_L4_template\SunJupiter_L4_mission\
             BaseName		 VOsnap
             Digits		 4
             Frame		 0
@@ -623,7 +624,7 @@ BEGIN SceneWindow
             BEGIN CrdnDef
                 IsVector		 Yes
                 IsCentralBodyFrame		 Yes
-                Name		 "NorthCelestialPole"
+                Name		 "ICRF-Z"
                 CentralBody		 Earth
             END
             BEGIN RefCrdn
@@ -648,7 +649,7 @@ BEGIN SceneWindow
             BEGIN CrdnDef
                 IsVector		 Yes
                 IsCentralBodyFrame		 Yes
-                Name		 "VernalEquinox"
+                Name		 "ICRF-X"
                 CentralBody		 Earth
             END
             BEGIN RefCrdn
@@ -889,6 +890,7 @@ BEGIN SceneWindow
         BEGIN RecordMovie
             OutputFormat		 VIDEO
             SdfSelected		 No
+            Directory		 C:\Users\adrus\Downloads\PSP-ASA-Asteroid-Mining\SunJupiter_L4_template\SunJupiter_L4_mission\
             BaseName		 VOsnap
             Digits		 4
             Frame		 0
@@ -1310,7 +1312,7 @@ BEGIN SceneWindow
             BEGIN CrdnDef
                 IsVector		 Yes
                 IsCentralBodyFrame		 Yes
-                Name		 "NorthCelestialPole"
+                Name		 "ICRF-Z"
                 CentralBody		 Earth
             END
             BEGIN RefCrdn
@@ -1335,7 +1337,7 @@ BEGIN SceneWindow
             BEGIN CrdnDef
                 IsVector		 Yes
                 IsCentralBodyFrame		 Yes
-                Name		 "VernalEquinox"
+                Name		 "ICRF-X"
                 CentralBody		 Earth
             END
             BEGIN RefCrdn
@@ -1474,8 +1476,8 @@ BEGIN SceneWindow
             UseLayer		 Yes
             FromName		 "Sun"
             FromRegPosAttView		 "Point"
-            FromPosition		 -4.0107897050263049e+11 -6.2078333041869941e+12  5.8453441076387676e+12
-            FromOffset		 -4.0107897050263049e+11 -6.2078333041869941e+12  5.8453441076387676e+12
+            FromPosition		 -4.0107897050263013e+11 -6.2078333041869951e+12  5.8453441076387676e+12
+            FromOffset		 -4.0107897050263013e+11 -6.2078333041869951e+12  5.8453441076387676e+12
             FromOffsetLLR		  7.5429361894951918e-01 -1.6353151814241729e+00  8.5361646194212959e+12
             ToName		 "Sun"
             ToRegPosAttView		 "Point"
@@ -1484,9 +1486,9 @@ BEGIN SceneWindow
             ToOffsetLLR		  0.0000000000000000e+00  0.0000000000000000e+00  0.0000000000000000e+00
             ConstantDistanceType		 None
             ConstantDistanceValue		 1
-            UpVector		  4.4150192642120605e-02  6.8334930631380564e-01  7.2875543637773599e-01
-            ViewRad		  8.5361646194212949e+12
-            ViewQuat		  6.7827269419470160e-01 -2.5187115453804737e-01  2.6866931965299490e-01  6.3586466366572758e-01
+            UpVector		  4.4150192642120549e-02  6.8334930631380553e-01  7.2875543637773599e-01
+            ViewRad		  8.5361646194212969e+12
+            ViewQuat		  6.7827269419470149e-01 -2.5187115453804737e-01  2.6866931965299479e-01  6.3586466366572769e-01
             ViewCoordSystem		 From
             ViewFromToMode		 FromTo
             ViewToCBIMtx		  1.0000000000000000e+00  0.0000000000000000e+00  0.0000000000000000e+00  0.0000000000000000e+00  1.0000000000000000e+00  0.0000000000000000e+00  0.0000000000000000e+00  0.0000000000000000e+00  1.0000000000000000e+00
@@ -1500,7 +1502,7 @@ BEGIN SceneWindow
             MinAngleToUpAxis		  8.7266462599716477e-03
             InitUpAxisUp		 Yes
             TempUpAxisUp		 Yes
-            CrossAxis		 -9.9791938059542462e-01  6.4474102025884439e-02  0.0000000000000000e+00
+            CrossAxis		 -9.9791938059542462e-01  6.4474102025884369e-02  0.0000000000000000e+00
             DefaultOffset		  3.8263500000000000e+09
             BaseDefaultOffset		  6.9570000000000000e+08
         END View
