@@ -1,7 +1,7 @@
 stk.v.12.0
 WrittenBy    STK_v12.2.0
 BEGIN Scenario
-    Name		 SunJupiter_L4_mission
+    Name		 SunJupiter_L4_hektorMission
 
     BEGIN Epoch
 
@@ -1673,6 +1673,7 @@ BEGIN Scenario
                     BEGIN RecordMovie
                         OutputFormat		 VIDEO
                         SdfSelected		 No
+                        Directory		 C:\Users\adrus\Downloads\PSP-ASA-Asteroid-Mining\SunJupiter_L4_template\SunJupiter_L4_mission\
                         BaseName		 Frame
                         Digits		 4
                         Frame		 0
@@ -1861,6 +1862,7 @@ BEGIN Scenario
                         BEGIN RecordMovie
                             OutputFormat		 VIDEO
                             SdfSelected		 No
+                            Directory		 C:\Users\adrus\Downloads\PSP-ASA-Asteroid-Mining\SunJupiter_L4_template\SunJupiter_L4_mission\
                             BaseName		 Frame
                             Digits		 4
                             Frame		 0
@@ -2048,6 +2050,7 @@ BEGIN Scenario
                         BEGIN RecordMovie
                             OutputFormat		 VIDEO
                             SdfSelected		 No
+                            Directory		 C:\Users\adrus\Downloads\PSP-ASA-Asteroid-Mining\SunJupiter_L4_template\SunJupiter_L4_mission\
                             BaseName		 Frame
                             Digits		 4
                             Frame		 0
