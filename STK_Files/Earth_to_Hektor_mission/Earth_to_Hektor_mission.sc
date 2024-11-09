@@ -131,7 +131,7 @@ BEGIN Scenario
             LaunchWindowTrajMETStart		 0
             LaunchWindowTrajMETStop		 900
             LaunchWindowStart		 0
-            LaunchWindowStop		 0
+            LaunchWindowStop		 -126230400
             LaunchMETOffset		 0
             LaunchWindowUseSecEphem		 No 
             LaunchWindowUseScenFolderForSecEphem		 Yes
@@ -542,12 +542,6 @@ BEGIN Scenario
         END ExportDataFile
 
         BEGIN Desc
-            BEGIN ShortText
-
-            END ShortText
-            BEGIN LongText
-
-            END LongText
         END Desc
 
         BEGIN RfEnv
@@ -1350,7 +1344,7 @@ BEGIN Scenario
 
                 StartTime		 26 Oct 2024 16:00:00.000000000
                 EndTime		 27 Oct 2028 16:00:00.000000000
-                CurrentTime		 26 Jul 2027 03:25:53.084000006
+                CurrentTime		 26 Oct 2024 16:00:00.000000000
                 Direction		 Forward
                 UpdateDelta		 3600
                 RefreshDelta		 0.010000
