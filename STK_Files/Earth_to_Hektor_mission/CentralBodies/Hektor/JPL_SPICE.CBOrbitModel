@@ -23,7 +23,7 @@
             <BOOL>true</BOOL>
         </VAR>
         <VAR name = "Category">
-            <STRING>&quot;&quot;</STRING>
+            <STRING>&quot;Hektor&quot;</STRING>
         </VAR>
         <VAR name = "ShooterControls">
             <LIST />
