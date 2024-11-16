@@ -1,0 +1,90 @@
+
+BEGIN CentralBody
+
+    Name		 Hektor
+
+    FuncCbInit		 AsterInit
+    FuncCbFree		 PlanetFree
+    FuncCbLoad		 PlanetLoad
+    FuncCbSave		 PlanetSave
+    FuncCbCopy		 PlanetCopy
+    FuncCbSet		 EarthSet
+
+    Prefix		 Moon
+
+    ShortDescription		 Moon of Uranus
+
+    Description		 Trogan Astroid
+
+    Type		 Moon
+
+
+    BEGIN AstroDefinition
+
+        Gm		  8.6489438210663452e+10
+        MaxAltitude		  0.0000000000000000e+00
+        MinAltitude		 -2.3300000000000000e+04
+        AtmosphereAltitude		  0.0000000000000000e+00
+        DtedSearchScale		 0.5
+
+        AttitudeName		 RotationCoefficientsFile
+
+        OrbitName		 Ephemeris_File
+
+        ShapeName		 Triaxial_Ellipsoid
+        Shape		        TriAxialEllipsoid		
+        MajorAxis		  5.8110000000000000e+05
+        MinorAxis		  5.7770000000000000e+05
+        MiddleAxis		  5.7790000000000000e+05
+
+        GravityModel		 ZonalsToJ4
+
+        ParentName		 Sun
+
+
+        PathGenerator		 Astrogator
+        PathGenerator		 GreatArc
+        PathGenerator		 HoldCBFPosition
+        PathGenerator		 HoldCBIPosition
+        PathGenerator		 HPOP
+        PathGenerator		 J2Perturbation
+        PathGenerator		 J4Perturbation
+        PathGenerator		 Rocket
+        PathGenerator		 SimpleAscent
+        PathGenerator		 SPICE
+        PathGenerator		 StkExternal
+        PathGenerator		 TwoBody
+
+    END AstroDefinition
+
+    BEGIN EphemerisData
+
+        EphemerisSource		 File
+
+        EphemPath		 hektor_results.e
+
+        EphemType		 8
+
+        EphemerisType		 StkEphemeris
+
+        JplIndex		 -1
+
+        JplSpiceId		 701
+
+        ApplyTDTtoTDBCorrectionForDE		 Yes
+
+    END EphemerisData
+
+    BEGIN SpinData
+
+        RotationDefinitionFile		 ArielAttitude2006.rot
+
+    END SpinData
+
+    BEGIN Hektor
+
+    END Hektor
+
+    ReadOnly		 No
+
+END CentralBody

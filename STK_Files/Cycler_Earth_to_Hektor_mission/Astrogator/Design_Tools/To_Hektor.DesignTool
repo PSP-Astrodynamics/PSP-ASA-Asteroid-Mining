@@ -38,7 +38,7 @@
                 <STRING>&quot;Implicit&quot;</STRING>
             </PROP>
             <LINKTOOBJ>
-                <STRING>&quot;Scenario/Earth_to_Hektor_mission AnalysisStartTime&quot;</STRING>
+                <STRING>&quot;Scenario/Cycler_Earth_to_Hektor_mission AnalysisStartTime&quot;</STRING>
             </LINKTOOBJ>
         </VAR>
         <VAR name = "MinimumTOF">

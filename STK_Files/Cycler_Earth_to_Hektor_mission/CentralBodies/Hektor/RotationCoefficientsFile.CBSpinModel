@@ -1,0 +1,41 @@
+<?xml version = "1.0" standalone = "yes"?>
+<VAR name = "RotationCoefficientsFile">
+    <SCOPE Class = "CBSpinModel">
+        <VAR name = "Version">
+            <STRING>&quot;1.0.0 a&quot;</STRING>
+        </VAR>
+        <VAR name = "STKVersion">
+            <INT>1220</INT>
+        </VAR>
+        <VAR name = "Description">
+            <STRING>&quot;Attitude Definition defined by coefficients in a file&quot;</STRING>
+        </VAR>
+        <VAR name = "Type">
+            <STRING>&quot;RotCoeffFile&quot;</STRING>
+        </VAR>
+        <VAR name = "UserComment">
+            <STRING>&quot;Attitude Definition defined by coefficients in a file&quot;</STRING>
+        </VAR>
+        <VAR name = "ReadOnly">
+            <BOOL>false</BOOL>
+        </VAR>
+        <VAR name = "Clonable">
+            <BOOL>true</BOOL>
+        </VAR>
+        <VAR name = "Category">
+            <STRING>&quot;Hektor&quot;</STRING>
+        </VAR>
+        <VAR name = "ShooterControls">
+            <LIST />
+        </VAR>
+        <VAR name = "Filename">
+            <STRING>&quot;CentralBodies\Hektor\ArielAttitude2006.rot&quot;</STRING>
+        </VAR>
+        <VAR name = "Model">
+            <STRING>&quot;Coefficients from the IAU 2006 parameter set&quot;</STRING>
+        </VAR>
+        <VAR name = "ModelName">
+            <STRING>&quot;Coefficients from the IAU 2006 parameter set&quot;</STRING>
+        </VAR>
+    </SCOPE>
+</VAR>

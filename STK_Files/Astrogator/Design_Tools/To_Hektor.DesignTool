@@ -38,7 +38,7 @@
                 <STRING>&quot;Implicit&quot;</STRING>
             </PROP>
             <LINKTOOBJ>
-                <STRING>&quot;Scenario/Earth_to_Hektor_mission AnalysisStartTime&quot;</STRING>
+                <STRING>&quot;Scenario/Cycler_Earth_to_Hektor_mission AnalysisStartTime&quot;</STRING>
             </LINKTOOBJ>
         </VAR>
         <VAR name = "MinimumTOF">
@@ -458,7 +458,7 @@
                     <STRING>&quot;-49.275863&quot;</STRING>
                 </VAR>
                 <VAR name = "PropReqDepGravity">
-                    <STRING>&quot;&quot;</STRING>
+                    <STRING>&quot;(Propagator Requires Departure Body&apos;s Gravity)&quot;</STRING>
                 </VAR>
             </SCOPE>
         </VAR>
@@ -8519,7 +8519,7 @@
                                                                                     </VAR>
                                                                                     <VAR name = "Y">
                                                                                         <QUANTITY Dimension = "Rate" Unit = "m*sec^-1">
-                                                                                            <REAL>-6879.081894681666</REAL>
+                                                                                            <REAL>-6879.081894681665</REAL>
                                                                                         </QUANTITY>
                                                                                     </VAR>
                                                                                     <VAR name = "Z">

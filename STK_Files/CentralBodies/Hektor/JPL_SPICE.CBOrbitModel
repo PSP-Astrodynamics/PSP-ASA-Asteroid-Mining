@@ -1,0 +1,35 @@
+<?xml version = "1.0" standalone = "yes"?>
+<VAR name = "JPL_SPICE">
+    <SCOPE Class = "CBOrbitModel">
+        <VAR name = "Version">
+            <STRING>&quot;1.0.0 a&quot;</STRING>
+        </VAR>
+        <VAR name = "STKVersion">
+            <INT>1220</INT>
+        </VAR>
+        <VAR name = "Description">
+            <STRING>&quot;JPL SPICE File&quot;</STRING>
+        </VAR>
+        <VAR name = "Type">
+            <STRING>&quot;SPICE&quot;</STRING>
+        </VAR>
+        <VAR name = "UserComment">
+            <STRING>&quot;JPL SPICE File&quot;</STRING>
+        </VAR>
+        <VAR name = "ReadOnly">
+            <BOOL>false</BOOL>
+        </VAR>
+        <VAR name = "Clonable">
+            <BOOL>true</BOOL>
+        </VAR>
+        <VAR name = "Category">
+            <STRING>&quot;Hektor&quot;</STRING>
+        </VAR>
+        <VAR name = "ShooterControls">
+            <LIST />
+        </VAR>
+        <VAR name = "SpiceIdNumber">
+            <STRING>&quot;701&quot;</STRING>
+        </VAR>
+    </SCOPE>
+</VAR>

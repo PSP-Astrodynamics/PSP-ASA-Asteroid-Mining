@@ -8047,7 +8047,7 @@
                                                                         </VAR>
                                                                         <VAR name = "Y">
                                                                             <QUANTITY Dimension = "Rate" Unit = "m*sec^-1">
-                                                                                <REAL>-6879.081894681666</REAL>
+                                                                                <REAL>-6879.081894681665</REAL>
                                                                             </QUANTITY>
                                                                         </VAR>
                                                                         <VAR name = "Z">

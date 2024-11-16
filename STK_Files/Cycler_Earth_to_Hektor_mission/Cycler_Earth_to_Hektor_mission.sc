@@ -1,7 +1,7 @@
 stk.v.12.0
 WrittenBy    STK_v12.2.0
 BEGIN Scenario
-    Name		 Earth_to_Hektor_mission
+    Name		 Cycler_Earth_to_Hektor_mission
 
     BEGIN Epoch
 
@@ -1344,9 +1344,9 @@ BEGIN Scenario
 
                 StartTime		 26 Oct 2024 16:00:00.000000000
                 EndTime		 27 Oct 2028 16:00:00.000000000
-                CurrentTime		 16 Jan 2030 08:00:00.000000000
-                Direction		 Forward
-                UpdateDelta		 230400
+                CurrentTime		 5 Jul 2032 08:00:00.000000000
+                Direction		 Reverse
+                UpdateDelta		 28800
                 RefreshDelta		 0.010000
                 XRealTimeMult		 1
                 RealTimeOffset		 0
@@ -1865,6 +1865,7 @@ BEGIN Scenario
         Class Satellite
 
             Satellite1		
+            Satellite2		
 
         END Class
 
@@ -1882,6 +1883,9 @@ BEGIN Scenario
         END Instance
         Instance Satellite/Satellite1
             Satellite/Satellite1		
+        END Instance
+        Instance Satellite/Satellite2
+            Satellite/Satellite2		
         END Instance
     END References
 

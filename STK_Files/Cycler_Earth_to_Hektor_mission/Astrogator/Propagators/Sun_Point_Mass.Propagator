@@ -1,0 +1,178 @@
+<?xml version = "1.0" standalone = "yes"?>
+<VAR name = "Sun_Point_Mass">
+    <SCOPE Class = "Propagator">
+        <VAR name = "Version">
+            <STRING>&quot;1.0.0 a&quot;</STRING>
+        </VAR>
+        <VAR name = "STKVersion">
+            <INT>1220</INT>
+        </VAR>
+        <VAR name = "Description">
+            <STRING>&quot;Numerical propagator using HPOP&quot;</STRING>
+        </VAR>
+        <VAR name = "Type">
+            <STRING>&quot;NumericalPropagatorWrapper&quot;</STRING>
+        </VAR>
+        <VAR name = "UserComment">
+            <STRING>&quot;Sun simple numerical two-body&quot;</STRING>
+        </VAR>
+        <VAR name = "ReadOnly">
+            <BOOL>false</BOOL>
+        </VAR>
+        <VAR name = "Clonable">
+            <BOOL>true</BOOL>
+        </VAR>
+        <VAR name = "Category">
+            <STRING>&quot;@Top&quot;</STRING>
+        </VAR>
+        <VAR name = "ShooterControls">
+            <LIST />
+        </VAR>
+        <VAR name = "CentralBody">
+            <LINKTOOBJ>
+                <STRING>&quot;Sun&quot;</STRING>
+            </LINKTOOBJ>
+        </VAR>
+        <VAR name = "NumericalIntegrator">
+            <VAR name = "RKF7th8th">
+                <SCOPE Class = "NumIntegrator">
+                    <VAR name = "Version">
+                        <STRING>&quot;1.0.0 a&quot;</STRING>
+                    </VAR>
+                    <VAR name = "STKVersion">
+                        <INT>1220</INT>
+                    </VAR>
+                    <VAR name = "Description">
+                        <STRING>&quot;Runge-Kutta-Fehlberg 7(8)&quot;</STRING>
+                    </VAR>
+                    <VAR name = "Type">
+                        <STRING>&quot;RKF7th8th&quot;</STRING>
+                    </VAR>
+                    <VAR name = "UserComment">
+                        <STRING>&quot;Runge-Kutta-Fehlberg 7(8)&quot;</STRING>
+                    </VAR>
+                    <VAR name = "ReadOnly">
+                        <BOOL>false</BOOL>
+                    </VAR>
+                    <VAR name = "Clonable">
+                        <BOOL>true</BOOL>
+                    </VAR>
+                    <VAR name = "Category">
+                        <STRING>&quot;&quot;</STRING>
+                    </VAR>
+                    <VAR name = "ShooterControls">
+                        <LIST />
+                    </VAR>
+                    <VAR name = "InitialStep">
+                        <QUANTITY Dimension = "TimeUnit" Unit = "sec">
+                            <REAL>60</REAL>
+                        </QUANTITY>
+                    </VAR>
+                    <VAR name = "UseFixedStep">
+                        <BOOL>false</BOOL>
+                    </VAR>
+                    <VAR name = "MaxIterations">
+                        <INT>100</INT>
+                    </VAR>
+                    <VAR name = "UseMaxStep">
+                        <BOOL>true</BOOL>
+                    </VAR>
+                    <VAR name = "UseMinStep">
+                        <BOOL>true</BOOL>
+                    </VAR>
+                    <VAR name = "MaxStep">
+                        <QUANTITY Dimension = "TimeUnit" Unit = "sec">
+                            <REAL>86400</REAL>
+                        </QUANTITY>
+                    </VAR>
+                    <VAR name = "MinStep">
+                        <QUANTITY Dimension = "TimeUnit" Unit = "sec">
+                            <REAL>1</REAL>
+                        </QUANTITY>
+                    </VAR>
+                    <VAR name = "MaxRelError">
+                        <REAL>1e-13</REAL>
+                    </VAR>
+                    <VAR name = "MaxAbsError">
+                        <REAL>1e-10</REAL>
+                    </VAR>
+                    <VAR name = "SCHigh">
+                        <REAL>0.9</REAL>
+                    </VAR>
+                    <VAR name = "SCLow">
+                        <REAL>0.9</REAL>
+                    </VAR>
+                    <VAR name = "ErrorControl">
+                        <STRING>&quot;Relative by component&quot;</STRING>
+                    </VAR>
+                    <VAR name = "StepTruncationThreshold">
+                        <REAL>0.1</REAL>
+                    </VAR>
+                    <VAR name = "StepTruncationRounding">
+                        <REAL>0.001</REAL>
+                    </VAR>
+                </SCOPE>
+            </VAR>
+        </VAR>
+        <VAR name = "PropFuncs">
+            <LIST>
+                <VAR name = "TwoBody_Force">
+                    <SCOPE Class = "EOMFuncWrapper">
+                        <VAR name = "Version">
+                            <STRING>&quot;1.0.0 a&quot;</STRING>
+                        </VAR>
+                        <VAR name = "STKVersion">
+                            <INT>1220</INT>
+                        </VAR>
+                        <VAR name = "Description">
+                            <STRING>&quot;Force from point mass of central body&quot;</STRING>
+                        </VAR>
+                        <VAR name = "Type">
+                            <STRING>&quot;TwoBodyFunc&quot;</STRING>
+                        </VAR>
+                        <VAR name = "UserComment">
+                            <STRING>&quot;Force from point mass of central body&quot;</STRING>
+                        </VAR>
+                        <VAR name = "ReadOnly">
+                            <BOOL>false</BOOL>
+                        </VAR>
+                        <VAR name = "Clonable">
+                            <BOOL>true</BOOL>
+                        </VAR>
+                        <VAR name = "Category">
+                            <STRING>&quot;Gravity Models&quot;</STRING>
+                        </VAR>
+                        <VAR name = "ShooterControls">
+                            <LIST />
+                        </VAR>
+                        <VAR name = "GravSource">
+                            <STRING>&quot;Cb File&quot;</STRING>
+                        </VAR>
+                        <VAR name = "Mu">
+                            <QUANTITY Dimension = "Grav Parameter" Unit = "m^3*sec^-2">
+                                <REAL>1.327124400419394e+20</REAL>
+                            </QUANTITY>
+                        </VAR>
+                        <VAR name = "MinRadiusPercent">
+                            <QUANTITY Dimension = "Percent" Unit = "unitValue">
+                                <REAL>0.99</REAL>
+                            </QUANTITY>
+                        </VAR>
+                    </SCOPE>
+                </VAR>
+            </LIST>
+        </VAR>
+        <VAR name = "UseVOP">
+            <BOOL>false</BOOL>
+        </VAR>
+        <VAR name = "UseRegularizedTime">
+            <BOOL>false</BOOL>
+        </VAR>
+        <VAR name = "RegularizedTimeExponent">
+            <REAL>1.5</REAL>
+        </VAR>
+        <VAR name = "RegularizedTimeStepsPerOrbit">
+            <INT>90</INT>
+        </VAR>
+    </SCOPE>
+</VAR>
