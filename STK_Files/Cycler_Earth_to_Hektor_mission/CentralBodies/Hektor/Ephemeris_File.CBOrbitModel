@@ -29,7 +29,7 @@
             <LIST />
         </VAR>
         <VAR name = "EphemFileName">
-            <STRING>&quot;C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Earth_to_Hektor_mission - Copy\CentralBodies\Hektor\hektor_results.e&quot;</STRING>
+            <STRING>&quot;&quot;</STRING>
         </VAR>
     </SCOPE>
 </VAR>

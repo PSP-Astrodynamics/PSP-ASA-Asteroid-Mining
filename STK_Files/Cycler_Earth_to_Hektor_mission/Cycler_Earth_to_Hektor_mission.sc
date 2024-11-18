@@ -1344,9 +1344,9 @@ BEGIN Scenario
 
                 StartTime		 26 Oct 2024 16:00:00.000000000
                 EndTime		 27 Oct 2028 16:00:00.000000000
-                CurrentTime		 5 Jul 2032 08:00:00.000000000
-                Direction		 Reverse
-                UpdateDelta		 28800
+                CurrentTime		 12 Aug 2030 16:00:00.000000000
+                Direction		 Forward
+                UpdateDelta		 115200
                 RefreshDelta		 0.010000
                 XRealTimeMult		 1
                 RealTimeOffset		 0

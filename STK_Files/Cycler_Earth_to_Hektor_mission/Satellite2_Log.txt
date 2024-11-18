@@ -3,27 +3,222 @@ Astrogator Log File; DriverMCS: Mission_Control_Sequence
 
 
 ----------------------------------------------
-Begin targeter profile Astroid_miner_transfer_arc_matlab3.Target_Sequence.Differential_Corrector
+Begin targeter profile Astroid_miner_transfer_arc_matlab4.Target_Sequence.Differential_Corrector
 
 Initial control parameters:
 
 Unscaled Controls:
 Name                                                Current Value           Last Update       Total Correction
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  52525.882264561413 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -16973.051307898106 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z  -8260.421826895286 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36424.862608882933 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26984.016553494526 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38983.433638822564 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
 
 
 Homotopy step   1 of   1
 
 Intermediate Goals Desired:
-Propagate : Rx  733407766.272317051888 km
-Propagate : Ry -296117764.428303003311 km
-Propagate : Rz -166243001.423624813557 km
+Propagate : Rx -463156481.407003581524 km
+Propagate : Ry -447587334.636268734932 km
+Propagate : Rz -443283053.256046593189 km
 
 
 
 ---Running one step of the differential corrector...
+
+-------------------------------------------------------------
+Iteration =   1
+Unscaled Intermediate Constraints:
+Name                     Current Value                    Desired              Difference          Tolerance
+Propagate : Rx -463013509.985799551010 km -463156481.407003581524 km  142971.421204040525 km  0.100000000000 km
+Propagate : Ry -447860143.025770127773 km -447587334.636268734932 km -272808.389501403784 km  0.100000000000 km
+Propagate : Rz -443617654.531131505966 km -443283053.256046593189 km -334601.275084960915 km  0.100000000000 km
+
+
+
+Performing one Newton-Raphson Step...
+
+Perturbation evaluation +1
+Controls:
+Name                                                        Value          Perturbation       Scaled Perturbation
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36424.962608882932 m/sec  0.100000000000 m/sec      0.000002745378
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26984.016553494526 m/sec  0.000000000000 m/sec      0.000000000000
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38983.433638822564 m/sec  0.000000000000 m/sec      0.000000000000
+
+Constraints:
+Name                             Value                 Change          Scaled Change
+Propagate : Rx -463010523.559000849724 km   2986.426798706055 km   6.44798662783e-06
+Propagate : Ry -447871160.936035513878 km -11017.910265380859 km  -2.46162243941e-05
+Propagate : Rz -443640728.199078202248 km -23073.667946655274 km  -5.20517709332e-05
+
+
+Perturbation evaluation +2
+Controls:
+Name                                                        Value          Perturbation       Scaled Perturbation
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36424.862608882933 m/sec  0.000000000000 m/sec      0.000000000000
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26983.916553494528 m/sec  0.100000000000 m/sec      0.000003705898
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38983.433638822564 m/sec  0.000000000000 m/sec      0.000000000000
+
+Constraints:
+Name                             Value                Change          Scaled Change
+Propagate : Rx -463012106.005599737167 km  1403.980199829102 km   3.03133013612e-06
+Propagate : Ry -447856767.509903311729 km  3375.515866821289 km   7.54158039249e-06
+Propagate : Rz -443614098.447699308395 km  3556.083432250977 km   8.02215064648e-06
+
+
+Perturbation evaluation +3
+Controls:
+Name                                                        Value          Perturbation       Scaled Perturbation
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36424.862608882933 m/sec  0.000000000000 m/sec      0.000000000000
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26984.016553494526 m/sec  0.000000000000 m/sec      0.000000000000
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38983.333638822565 m/sec  0.100000000000 m/sec      0.000002565192
+
+Constraints:
+Name                             Value                 Change          Scaled Change
+Propagate : Rx -463012726.401061177254 km    783.584738403320 km   1.69183584784e-06
+Propagate : Ry -447845331.862816631794 km  14811.162953491212 km   3.30911127446e-05
+Propagate : Rz -443589040.878022551537 km  28613.653109008788 km   6.45493954683e-05
+
+
+Partial derivative matrix (scaled) :
+
+        2.34867027023       -8.96642591506       -18.9597860479
+       0.817974625722        2.03502130151        2.16469845839
+        0.65953570502        12.9000519771        25.1635707466
+
+Newton Step Done...
+
+DC proposed step:
+Name                                                   Scaled         Unscaled
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -0.000229824393  -8.371321947519 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000427614370  11.538753235777 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -0.000179952687  -7.015173624597 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                   Scaled         Unscaled
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -0.000229824393  -8.371321947519 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000427614370  11.538753235777 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -0.000179952687  -7.015173624597 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                                Current Value            Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36416.491286935416 m/sec  -8.371321947519 m/sec  -8.371321947519 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26972.477800258748 m/sec  11.538753235777 m/sec  11.538753235777 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38990.448812447161 m/sec  -7.015173624597 m/sec  -7.015173624597 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                     Current Value                    Desired            Difference          Tolerance
+Propagate : Rx -463156295.205629646778 km -463156481.407003581524 km   186.201373962402 km  0.100000000000 km
+Propagate : Ry -447587984.029353737831 km -447587334.636268734932 km  -649.393085021973 km  0.100000000000 km
+Propagate : Rz -443284063.110657274723 km -443283053.256046593189 km -1009.854610717773 km  0.100000000000 km
+
+
+
+-------------------------------------------------------------
+Iteration =   2
+Unscaled Intermediate Constraints:
+Name                     Current Value                    Desired            Difference          Tolerance
+Propagate : Rx -463156295.205629646778 km -463156481.407003581524 km   186.201373962402 km  0.100000000000 km
+Propagate : Ry -447587984.029353737831 km -447587334.636268734932 km  -649.393085021973 km  0.100000000000 km
+Propagate : Rz -443284063.110657274723 km -443283053.256046593189 km -1009.854610717773 km  0.100000000000 km
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        2.34832558292       -8.96518197337       -18.9578328427
+       0.818615955574         2.0327068068        2.16106429839
+       0.659265814581        12.9010259845        25.1651001079
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                   Scaled        Unscaled
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -0.000000312439 -0.011380558437 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000560595  0.015127095847 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -0.000000192987 -0.007523280399 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                   Scaled        Unscaled
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -0.000000312439 -0.011380558437 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000560595  0.015127095847 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -0.000000192987 -0.007523280399 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                                Current Value           Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36416.479906376975 m/sec -0.011380558437 m/sec  -8.382702505955 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26972.462673162903 m/sec  0.015127095847 m/sec  11.553880331624 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38990.456335727562 m/sec -0.007523280399 m/sec  -7.022696904996 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                     Current Value                    Desired         Difference          Tolerance
+Propagate : Rx -463156480.915727317333 km -463156481.407003581524 km  0.491276306152 km  0.100000000000 km
+Propagate : Ry -447587335.543600976467 km -447587334.636268734932 km -0.907332214355 km  0.100000000000 km
+Propagate : Rz -443283054.362657904625 km -443283053.256046593189 km -1.106611328125 km  0.100000000000 km
+
+
+
+-------------------------------------------------------------
+Iteration =   3
+Unscaled Intermediate Constraints:
+Name                     Current Value                    Desired         Difference          Tolerance
+Propagate : Rx -463156480.915727317333 km -463156481.407003581524 km  0.491276306152 km  0.100000000000 km
+Propagate : Ry -447587335.543600976467 km -447587334.636268734932 km -0.907332214355 km  0.100000000000 km
+Propagate : Rz -443283054.362657904625 km -443283053.256046593189 km -1.106611328125 km  0.100000000000 km
+
+
+
+Updating partials with Secant method...
+
+Partial derivative matrix (scaled) :
+
+        2.34758769044       -8.96377176414       -18.9560962059
+       0.819939920247        2.03017653681        2.15794833528
+       0.658810035285        12.9018970384        25.1661727887
+
+Secant Update Done...
+
+DC proposed step:
+Name                                                   Scaled        Unscaled
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -0.000000000785 -0.000028603679 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000001450  0.000039131529 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -0.000000000617 -0.000024039299 m/sec
+
+
+Step with Max Step limits applied:
+Name                                                   Scaled        Unscaled
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X -0.000000000785 -0.000028603679 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y  0.000000001450  0.000039131529 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -0.000000000617 -0.000024039299 m/sec
+
+
+Step final values:
+
+Unscaled Controls:
+Name                                                Current Value           Last Update       Total Correction
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36416.479877773301 m/sec -0.000028603679 m/sec  -8.382731109635 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26972.462634031373 m/sec  0.000039131529 m/sec  11.553919463153 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38990.456359766860 m/sec -0.000024039299 m/sec  -7.022720944294 m/sec
+
+
+Unscaled Intermediate Constraints:
+Name                     Current Value                    Desired         Difference          Tolerance
+Propagate : Rx -463156481.407800078392 km -463156481.407003581524 km -0.000796447754 km  0.100000000000 km
+Propagate : Ry -447587334.636646747589 km -447587334.636268734932 km -0.000377990723 km  0.100000000000 km
+Propagate : Rz -443283053.257511854172 km -443283053.256046593189 km -0.001465270996 km  0.100000000000 km
+
+
 
 --------------------------------------------------------
 
@@ -39,16 +234,16 @@ Params from single diff corr
 
 Unscaled Controls:
 Name                                                Current Value           Last Update       Total Correction
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  52525.882264561413 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -16973.051307898106 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z  -8260.421826895286 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36416.479877773301 m/sec -0.000028603679 m/sec  -8.382731109635 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26972.462634031373 m/sec  0.000039131529 m/sec  11.553919463153 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38990.456359766860 m/sec -0.000024039299 m/sec  -7.022720944294 m/sec
 
 
 Unscaled Intermediate Constraints:
 Name                     Current Value                    Desired         Difference          Tolerance
-Propagate : Rx  733407766.251531839371 km  733407766.272317051888 km -0.020785156250 km  0.100000000000 km
-Propagate : Ry -296117764.419520854950 km -296117764.428303003311 km  0.008782104492 km  0.100000000000 km
-Propagate : Rz -166243001.418624669313 km -166243001.423624813557 km  0.005000152588 km  0.100000000000 km
+Propagate : Rx -463156481.407800078392 km -463156481.407003581524 km -0.000796447754 km  0.100000000000 km
+Propagate : Ry -447587334.636646747589 km -447587334.636268734932 km -0.000377990723 km  0.100000000000 km
+Propagate : Rz -443283053.257511854172 km -443283053.256046593189 km -0.001465270996 km  0.100000000000 km
 
 
 
@@ -57,16 +252,16 @@ Final Params from Homotopy Diff Corr
 
 Unscaled Controls:
 Name                                                Current Value           Last Update       Total Correction
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  52525.882264561413 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -16973.051307898106 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
-Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z  -8260.421826895286 m/sec  0.000000000000 m/sec   0.000000000000 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.X  36416.479877773301 m/sec -0.000028603679 m/sec  -8.382731109635 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Y -26972.462634031373 m/sec  0.000039131529 m/sec  11.553919463153 m/sec
+Maneuver : ImpulsiveMnvr.Pointing.Cartesian.Z -38990.456359766860 m/sec -0.000024039299 m/sec  -7.022720944294 m/sec
 
 
 Unscaled Intermediate Constraints:
 Name                     Current Value                    Desired         Difference          Tolerance
-Propagate : Rx  733407766.251531839371 km  733407766.272317051888 km -0.020785156250 km  0.100000000000 km
-Propagate : Ry -296117764.419520854950 km -296117764.428303003311 km  0.008782104492 km  0.100000000000 km
-Propagate : Rz -166243001.418624669313 km -166243001.423624813557 km  0.005000152588 km  0.100000000000 km
+Propagate : Rx -463156481.407800078392 km -463156481.407003581524 km -0.000796447754 km  0.100000000000 km
+Propagate : Ry -447587334.636646747589 km -447587334.636268734932 km -0.000377990723 km  0.100000000000 km
+Propagate : Rz -443283053.257511854172 km -443283053.256046593189 km -0.001465270996 km  0.100000000000 km
 
 
 
@@ -74,4 +269,4 @@ Propagate : Rz -166243001.418624669313 km -166243001.423624813557 km  0.00500015
 
 *********** Done Targeting************************
 
-End targeter profile Astroid_miner_transfer_arc_matlab3.Target_Sequence.Differential_Corrector
+End targeter profile Astroid_miner_transfer_arc_matlab4.Target_Sequence.Differential_Corrector

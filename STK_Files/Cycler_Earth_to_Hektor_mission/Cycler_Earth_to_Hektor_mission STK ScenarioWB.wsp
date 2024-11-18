@@ -11,18 +11,22 @@ ptn_Child1=Frames
 ptn_Child1=MainFrame
 ptn_Child2=ChildFrames
 [WorkState_v1_2.Frames.MainFrame]
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAPPPPPPPPPPPPPPPPGCCAAAAANLAAAAAAGHHAAAAABPDAAAAA
-Title=Cycler_Earth_to_Hektor_mission - STK 12 - [Sun]
+WindowPlacement=MCAAAAAACAAAAAAACAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPGCCAAAAANLAAAAAAGHHAAAAABPDAAAAA
+Title=Cycler_Earth_to_Hektor_mission - STK 12 - [Analysis Workbench]
 [WorkState_v1_2.Frames.ChildFrames]
 ptn_Child1=Document-0
 ptn_Child2=Document-1
 ptn_Child3=Document-2
 ptn_Child4=Document-3
 ptn_Child5=Document-4
+ptn_Child6=Document-5
+ptn_Child7=Document-6
+ptn_Child8=Document-7
+ptn_Child9=Document-8
 [WorkState_v1_2.Frames.ChildFrames.Document-0]
 ptn_Child1=ViewFrame-0
 [WorkState_v1_2.Frames.ChildFrames.Document-0.ViewFrame-0]
-DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Earth_to_Hektor_mission - Copy\AgUi3DGfxView12.AgUiPi3DGfxView.1
+DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Cycler_Earth_to_Hektor_mission\AgUi3DGfxView12.AgUiPi3DGfxView.1
 DocumentString=AgUi3DGfxView.AgUiPi3DGfxView.1
 DocTemplateIndex=0
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPFPPPPPPPINPPPPPPAEAAAAAAAEAAAAAADFCAAAAAFACAAAAA
@@ -35,11 +39,11 @@ SceneType=1
 [WorkState_v1_2.Frames.ChildFrames.Document-1]
 ptn_Child1=ViewFrame-0
 [WorkState_v1_2.Frames.ChildFrames.Document-1.ViewFrame-0]
-DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Earth_to_Hektor_mission - Copy\AgUi3DGfxView12.AgUiPi3DGfxView.1
+DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Cycler_Earth_to_Hektor_mission\AgUi3DGfxView12.AgUiPi3DGfxView.1
 DocumentString=AgUi3DGfxView.AgUiPi3DGfxView.1
 DocTemplateIndex=0
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPFPPPPPPPINPPPPPPAAAAAAAAAAAAAAAADBCAAAAAFMBAAAAA
-IsActiveChildFrame=True
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPFPPPPPPPINPPPPPPAAAAAAAAAAAAAAAADBCAAAAAFMBAAAAA
+IsActiveChildFrame=False
 IsFrameVisible=True
 ptn_Child1=AGI Custom Node Data
 [WorkState_v1_2.Frames.ChildFrames.Document-1.ViewFrame-0.AGI Custom Node Data]
@@ -48,7 +52,7 @@ SceneType=1
 [WorkState_v1_2.Frames.ChildFrames.Document-2]
 ptn_Child1=ViewFrame-0
 [WorkState_v1_2.Frames.ChildFrames.Document-2.ViewFrame-0]
-DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Earth_to_Hektor_mission - Copy\AgUi3DGfxView12.AgUiPi3DGfxView.1
+DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Cycler_Earth_to_Hektor_mission\AgUi3DGfxView12.AgUiPi3DGfxView.1
 DocumentString=AgUi3DGfxView.AgUiPi3DGfxView.1
 DocTemplateIndex=0
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPFPPPPPPPINPPPPPPACAAAAAAACAAAAAADDCAAAAAFOBAAAAA
@@ -61,26 +65,26 @@ SceneType=1
 [WorkState_v1_2.Frames.ChildFrames.Document-3]
 ptn_Child1=ViewFrame-0
 [WorkState_v1_2.Frames.ChildFrames.Document-3.ViewFrame-0]
-DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Earth_to_Hektor_mission - Copy\AgUiAttrBrowser12.AgUiPiAttrBrowser.1
+DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Cycler_Earth_to_Hektor_mission\AgUiAttrBrowser12.AgUiPiAttrBrowser.1
 DocumentString=AgUiAttrBrowser.AgUiPiAttrBrowser.1
 DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAAAAAAAAAAAAAAALNAAAAAAKADAAAAA
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAAAAAAAAAAAAAAALNAAAAAAAAAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 ProfUISBarID=63000
 ptn_Child1=AGI Custom Node Data
-[WorkState_v1_2.Frames.ChildFrames.Document-4]
+[WorkState_v1_2.Frames.ChildFrames.Document-5]
 ptn_Child1=ViewFrame-0
-[WorkState_v1_2.Frames.ChildFrames.Document-4.ViewFrame-0]
-DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Earth_to_Hektor_mission - Copy\AgUiTimelineView12.AgUiPiTimelineView.1
+[WorkState_v1_2.Frames.ChildFrames.Document-5.ViewFrame-0]
+DocPathName=C:\Users\jwill\Documents\GitHub\PSP-ASA-Asteroid-Mining\STK_Files\Cycler_Earth_to_Hektor_mission\AgUiTimelineView12.AgUiPiTimelineView.1
 DocumentString=AgUiTimelineView.AgUiPiTimelineView.1
 DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAAAAAAAAAAAAAAAAIHAAAAAIJAAAAAA
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAAAAAAAAAAAAAAAAAAAAAAAIJAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 ProfUISBarID=63001
 ptn_Child1=AGI Custom Node Data
-[WorkState_v1_2.Frames.ChildFrames.Document-4.ViewFrame-0.AGI Custom Node Data]
+[WorkState_v1_2.Frames.ChildFrames.Document-5.ViewFrame-0.AGI Custom Node Data]
 ComponentWellWidth=200.000000000000
 CurrentContentView=Scenario Availability
 CurrentTimeView=Scenario Analysis Period
