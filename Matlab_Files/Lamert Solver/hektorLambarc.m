@@ -108,7 +108,7 @@ grid on;
 axis equal;
 
 % Add a legend
-legend('Hektor Orbit', 'Earth','Sun');
+legend('Lambert Orbit','Hektor Orbit', 'Earth','Sun');
 
 plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)])
 plot3([0,r1_vec(1)],[0,r1_vec(2)],[0,r1_vec(3)])
