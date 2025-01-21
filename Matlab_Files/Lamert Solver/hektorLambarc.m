@@ -18,13 +18,13 @@ r_E_vec = planetEphemeris(time,'Sun','Earth');
 %% lamber
 a_E = 149597898;
 mu_S = 132712440017.99;
-%mu_E = 398600.4415;
+% mu_E = 398600.4415;
 N = 10;
 % TOF_hoh = 8.6176e+07;
 % period_E = 31558205; % sec
 
-%r1_vec = [-71901356.638820,      -7888916.570738,     129962325.986539]; %Intial position vector of sataliete km
-%r2_vec = [-22048919.391468,     -42955627.467596,     779979918.968054]; %Sataliet final position km
+% r1_vec = [-71901356.638820,      -7888916.570738,     129962325.986539]; %Intial position vector of sataliete km
+% r2_vec = [-22048919.391468,     -42955627.467596,     779979918.968054]; %Sataliet final position km
 r1_vec = r_E_vec(1,:);
 r2_vec = r_H_vec(1,:);
 
@@ -50,8 +50,6 @@ lambert_solutions = lambertSolver(a_trans, c, s, mu_S);
 % pick 1A
 %a_trans = lambert_solutions{2,1};
 
-alpha0 = 2 * asin(sqrt(s / (2 * a_trans))); 
-beta0 = 2 * asin(sqrt((s - c) / (2 * a_trans)));  
 %p_trans = 4*a_trans*(s-r1)*(s-r2)*(sin(0.5*(alpha0+beta0))^2)/c^2;
 p_trans = 4*a_trans*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
 e_trans = sqrt(1-p_trans/a_trans);
@@ -107,11 +105,11 @@ title('3D Orbit of Hektor Around the Sun');
 grid on;
 axis equal;
 
-% Add a legend
-legend('Lambert Orbit','Hektor Orbit', 'Earth','Sun');
-
 plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)])
 plot3([0,r1_vec(1)],[0,r1_vec(2)],[0,r1_vec(3)])
+
+% Add a legend
+legend('Lambert Orbit','Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
 
 %% function
 
