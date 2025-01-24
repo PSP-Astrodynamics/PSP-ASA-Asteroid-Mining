@@ -17,17 +17,18 @@ r_E_vec = planetEphemeris(time,'Sun','Earth');
 
 %% lamber
 a_E = 149597898;
-mu_S = 132712440017.99;
-% mu_E = 398600.4415;
+mu_S = 132712440017.99; % Gravitational Parameter of Sun
+% mu_E = 398600.4415;     % Gravitational Parameter of Earth
 N = 10;
 % TOF_hoh = 8.6176e+07;
 % period_E = 31558205; % sec
 
 % r1_vec = [-71901356.638820,      -7888916.570738,     129962325.986539]; %Intial position vector of sataliete km
 % r2_vec = [-22048919.391468,     -42955627.467596,     779979918.968054]; %Sataliet final position km
-r1_vec = r_E_vec(1,:);
-r2_vec = r_H_vec(1,:);
+r1_vec = r_E_vec(1,:); % Initial Position of the Earth
+r2_vec = r_H_vec(1,:); % Inital Position of Hektor
 
+% unit vectors
 r1 = norm(r1_vec);
 r2 = norm(r2_vec);
 
