@@ -76,7 +76,7 @@ RAAN_trans = asin(h_hat(1)/sin(i_trans));
 figure
 
 % Creat a subplot one for 3D Orbit and the other for 2D Projected Orbit
-subplot(1, 2, 1) % 3D Projection
+%subplot(1, 2, 1) % 3D Projection
 plotOrbit3(RAAN_trans, i_trans, omega_trans, p_trans, e_trans, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
 
 % Extract data points from the current 3D plot
@@ -85,10 +85,10 @@ lines = h.Children;    % Get the line objects in the axes
 x_data = lines.XData;  % Extract x-data
 y_data = lines.YData;  % Extract y-data
 z_data = lines.ZData;  % Extract z-data
- 
+
 % Try to do 2D Projection of 3D orbit for the Lambert Orbit 
-subplot(1, 2, 2); % 2D Projection
-plot(x_data, y_data, 'r', LineWidth = 1)
+%subplot(1, 2, 2); % 2D Projection
+plot(x_data, y_data)
 
 
 
@@ -124,23 +124,8 @@ z_data = lines.ZData;  % Extract z-data
 subplot(1, 2, 2); % 2D Projection
 plot(x_data, y_data)
 
-subplot(1, 2, 1) % 3D Projection
 hold on;
 plot3(r_E_vec(:,1),r_E_vec(:,2),r_E_vec(:,3), 'LineWidth', 1.5)
-
-% % Create a 2D projection of the orbit
-% % Extract data points from the current 3D plot
-% h = gca;               % Get the current axes
-% lines = h.Children;    % Get the line objects in the axes
-% x_data = lines.XData;  % Extract x-data
-% y_data = lines.YData;  % Extract y-data
-% z_data = lines.ZData;  % Extract z-data
-% 
-% % Try to do 2D Projection of 3D orbit for the Lambert Orbit 
-subplot(1, 2, 2); % 2D Projection
-% plot(x_data, y_data)
-
-subplot(1, 2, 1) % 3D Projection
 
 % Plot the Sun at the origin
 plot3(0, 0, 0, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'yellow');
