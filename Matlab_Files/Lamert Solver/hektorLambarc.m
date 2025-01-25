@@ -40,6 +40,7 @@ IP_trans = N*IP_E;
 
 a_trans = (mu_S*(IP_trans/(2*pi))^2)^(1/3);
 
+% 1/25 added stuff
 % Time of flight solutions
 TOF_sol = lambertSolverTOF(a_trans, c, s, mu_S);
 
@@ -50,6 +51,7 @@ pAB_2 = p_sol{2, 2};
 % solve for eccentricity using different p vals
 e_AB_1 = sqrt(1 - (pAB_1 / a_trans));
 e_AB_2 = sqrt(1 - (pAB_2 / a_trans));
+% end of 1/25 added stuff
 
 % hrere
 
@@ -84,8 +86,13 @@ r1_hat = r1_vec/r1;
 
 RAAN_trans = asin(h_hat(1)/sin(i_trans));
 
-figure
+figure()
+% plotting orbit from 1/25 added stuff section
+plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_1, e_AB_1, linspace(0,2*pi,1000), 'b', 1, 1, [0,0,0],0,1.5)
+hold on
 plotOrbit3(RAAN_trans, i_trans, omega_trans, p_trans, e_trans, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
+
+
 
 %% plot
 % MATLAB script to plot Hektor's orbit from ephemeris file
@@ -122,7 +129,7 @@ plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)])
 plot3([0,r1_vec(1)],[0,r1_vec(2)],[0,r1_vec(3)])
 
 % Add a legend
-legend('Lambert Orbit','Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
+legend('Lambert Orbit1', 'Lambert Orbit 2', 'Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
 
 %% function
 
