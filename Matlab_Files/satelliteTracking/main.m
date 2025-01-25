@@ -8,8 +8,8 @@ clear all; close all
 %--------------------------USER SETTINGS----------------------------------%
 
 %% Define Satellite Properties - YOU MUST UPDATE THESE VALUES
-Spacecraft.mass = 10; % Satellite mass [kg] %6U mass average 
-Spacecraft.Aref = .3; % Satellite reference area [m^2]
+Spacecraft.mass = 2; % Satellite mass [kg] %6U mass average 
+Spacecraft.Aref = .03405; % Satellite reference area [m^2]
 Spacecraft.Cd   = 0.2; % Satellite drag coefficient [unitless]
 Spacecraft.JDepoch   = 2460641.041184; % Satellite Julian date at epoch
 Spacecraft.position   = [-6856.526969  ;-150.495186  ;14.715389   ]; % Satellite initial ECI position [km]
@@ -36,7 +36,7 @@ Environment.EarthRotationRate = 7.2921159e-5;   % Earth's rotation rate [rad/s]
 
 %% SOLAR INFO - UPDATE THESE
 Environment.f107Daily = 210;                    % Solar F10.7 cm radio flux [SFU]
-Environment.f107Average = (222.62+196.71+133.1)/3;                  % 81-day average F10.7 cm radio flux [SFU]
+Environment.f107Average = getAverageF107();                  % 81-day average F10.7 cm radio flux [SFU]
 Environment.magneticIndex = 5;                  % Geomagnetic activity index [unitless]
 
 %% Propagate Properties
