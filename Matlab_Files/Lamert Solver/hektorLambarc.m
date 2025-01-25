@@ -2,6 +2,8 @@ clc
 clear
 close all
 
+%see if i can push origin
+
 % Define the filename
 filename = 'hektor_results.txt';
 
@@ -22,7 +24,6 @@ mu_S = 132712440017.99; % Gravitational Parameter of Sun
 N = 10;
 % TOF_hoh = 8.6176e+07;
 % period_E = 31558205; % sec
-
 % r1_vec = [-71901356.638820,      -7888916.570738,     129962325.986539]; %Intial position vector of sataliete km
 % r2_vec = [-22048919.391468,     -42955627.467596,     779979918.968054]; %Sataliet final position km
 r1_vec = r_E_vec(1,:); % Initial Position of the Earth
