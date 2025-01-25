@@ -62,6 +62,9 @@ g = r1*r2*sin(TA)/sqrt(mu_S*p_trans);
 
 v1_vec = (r2_vec-f*r1_vec)/g;
 
+theta_star1_plus = -acos((p_trans/r1-1)/e_trans);
+
+
 r1_hat = r1_vec/r1;
 theta_star = acos((p_trans / (r1) - 1) / e_trans);
 
