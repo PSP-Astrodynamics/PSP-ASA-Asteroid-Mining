@@ -2,8 +2,6 @@ clc
 clear
 close all
 
-%see if i can push origin
-
 % Define the filename
 filename = 'hektor_results.txt';
 
@@ -47,6 +45,11 @@ TOF_sol = lambertSolverTOF(a_trans, c, s, mu_S);
 
 % p solutions
 p_sol = lambertSolverP(a_trans, c, s, r1, r2);
+pAB_1 = p_sol{2, 1};
+pAB_2 = p_sol{2, 2};
+% solve for eccentricity using different p vals
+e_AB_1 = sqrt(1 - (pAB_1 / a_trans));
+e_AB_2 = sqrt(1 - (pAB_2 / a_trans));
 
 % hrere
 
