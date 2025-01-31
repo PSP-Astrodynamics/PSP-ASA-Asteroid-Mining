@@ -59,9 +59,10 @@ alpha0 = 2*asin(sqrt(s/(2*a_trans)));
 
 beta0 = 2*asin(sqrt((s-c)/(2*a_trans)));
 
+% old
 %TOF = (1/sqrt(mu_S))* a_trans^(3/2) * (alpha0 - sin(alpha0) - (beta0 - sin(beta0)));
-lambert_solutions = lambertSolver(a_trans, c, s, mu_S);
-
+%lambert_solutions = lambertSolver(a_trans, c, s, mu_S);
+%
 % pick 1A
 %a_trans = lambert_solutions{2,1};
 
@@ -103,7 +104,7 @@ figure()
 % plotting orbit from 1/25 added stuff section
 plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_1, e_AB_1, linspace(0,2*pi,1000), 'b', 1, 1, [0,0,0],0,1.5)
 hold on
-plotOrbit3(RAAN_trans, i_trans, omega_trans, p_trans, e_trans, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
+plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_2, e_AB_2, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
 
 
 
