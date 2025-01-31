@@ -11,16 +11,16 @@ clear all; close all
 Spacecraft.mass = 2; % Satellite mass [kg] %6U mass average 
 Spacecraft.Aref = .03405; % Satellite reference area [m^2]
 Spacecraft.Cd   = 0.2; % Satellite drag coefficient [unitless]
-Spacecraft.JDepoch   = 2460641.041184; % Satellite Julian date at epoch
-Spacecraft.position   = [-6856.526969  ;-150.495186  ;14.715389   ]; % Satellite initial ECI position [km]
-Spacecraft.velocity   = [0.030177 ;0.967984; 7.569638 ]; % Satellite initial ECI velocity [km/s]
+Spacecraft.JDepoch   = 2460701.044467; % Satellite Julian date at epoch
+Spacecraft.position   = [-7.009185639728406e+02;6.774649964488052e+03;14.715945953476492]; % Satellite initial ECI position [km]
+Spacecraft.velocity   = [0.976209855549091;0.086153698831070;7.589732423763508]; % Satellite initial ECI velocity [km/s]
 
 %% Define Ground Station Properties - UPDATE THESE TOO
-Station.latitude = 39.236; %Ground station latitude [deg]
-Station.longitude = -86.305; %Ground station longitude [deg]
-Station.altitude = 0.280;  % Ground station altitude [km]
+Station.latitude = 	50.359; %Ground station latitude [deg]
+Station.longitude = 30.388; %Ground station longitude [deg]
+Station.altitude = 0.2;  % Ground station altitude [km]
 Station.minElevation = 5; % Minimum elevation for acquisition [deg]
-Station.freq = 437e6; % Station frequency [Hz]
+Station.freq = 435000000; % Station frequency [Hz]
 
 % Station.latitude = 40.009; %Ground station latitude [deg]
 % Station.longitude = -105.248; %Ground station longitude [deg]
@@ -35,7 +35,7 @@ Environment.EarthEquatorialRadius = 6378.1363;  % [km]
 Environment.EarthRotationRate = 7.2921159e-5;   % Earth's rotation rate [rad/s]
 
 %% SOLAR INFO - UPDATE THESE
-Environment.f107Daily = 210;                    % Solar F10.7 cm radio flux [SFU]
+Environment.f107Daily = 235;                    % Solar F10.7 cm radio flux [SFU]
 Environment.f107Average = getAverageF107();                  % 81-day average F10.7 cm radio flux [SFU]
 Environment.magneticIndex = 5;                  % Geomagnetic activity index [unitless]
 
