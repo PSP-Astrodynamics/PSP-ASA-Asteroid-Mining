@@ -7,13 +7,32 @@
 clear all; close all
 %--------------------------USER SETTINGS----------------------------------%
 
+%% Define Satellite TLE - YOU MUST UPDATE THESE VALUES
+tleLine1 = '1 51085U 22002DF  25025.54446733  .00041556  00000+0  94120-3 0  9994';
+tleLine2 = '2 51085  97.3566  95.9229 0007148 342.7667  17.3337 15.42972602168364';
+
+[rxyz, velxyz, alt] = getInitialStateVectorFunc(tleLine1, tleLine2);
+
+% Position
+fprintf('Position vector in km is:\n');
+fprintf('altitude = %f \n',alt);
+fprintf('x = %f \n',rxyz(1));
+fprintf('y = %f \n',rxyz(2));
+fprintf('z = %f \n',rxyz(3));
+
+% Velocity
+fprintf('Velocity vector in km/sec is:\n');
+fprintf('x = %f \n',velxyz(1));
+fprintf('y = %f \n',velxyz(2));
+fprintf('z = %f \n',velxyz(3));
+
 %% Define Satellite Properties - YOU MUST UPDATE THESE VALUES
 Spacecraft.mass = 2; % Satellite mass [kg] %6U mass average 
 Spacecraft.Aref = .03405; % Satellite reference area [m^2]
 Spacecraft.Cd   = 0.2; % Satellite drag coefficient [unitless]
 Spacecraft.JDepoch   = 2460701.044467; % Satellite Julian date at epoch
-Spacecraft.position   = [-7.009185639728406e+02;6.774649964488052e+03;14.715945953476492]; % Satellite initial ECI position [km]
-Spacecraft.velocity   = [0.976209855549091;0.086153698831070;7.589732423763508]; % Satellite initial ECI velocity [km/s]
+Spacecraft.position   = rxyz; % Satellite initial ECI position [km]
+Spacecraft.velocity   = velxyz; % Satellite initial ECI velocity [km/s]
 
 %% Define Ground Station Properties - UPDATE THESE TOO
 Station.latitude = 	50.359; %Ground station latitude [deg]
@@ -22,22 +41,17 @@ Station.altitude = 0.2;  % Ground station altitude [km]
 Station.minElevation = 5; % Minimum elevation for acquisition [deg]
 Station.freq = 435000000; % Station frequency [Hz]
 
-% Station.latitude = 40.009; %Ground station latitude [deg]
-% Station.longitude = -105.248; %Ground station longitude [deg]
-% Station.altitude = 1.626;  % Ground station altitude [km]
-% Station.minElevation = 10; % Minimum elevation for acquisition [deg]
-% Station.freq = 437e6; % Station frequency [Hz]
+%% SOLAR INFO - UPDATE THESE
+Environment.f107Daily = 235;                    % Solar F10.7 cm radio flux [SFU]
+Environment.f107Average = getAverageF107();                  % 81-day average F10.7 cm radio flux [SFU]
+Environment.magneticIndex = 5;                  % Geomagnetic activity index [unitless]
+
 %% Define Enviornment Properties
 Environment.EarthMU = 3.9860044189e5;           % Earth gravitational parameter [km^3/s^2]
 Environment.EarthJ2 = 1082.63e-6;               % J2 oblateness parameter [unitless]
 Environment.EarthPolarRadius = 6356.752;        % [km]
 Environment.EarthEquatorialRadius = 6378.1363;  % [km]
 Environment.EarthRotationRate = 7.2921159e-5;   % Earth's rotation rate [rad/s]
-
-%% SOLAR INFO - UPDATE THESE
-Environment.f107Daily = 235;                    % Solar F10.7 cm radio flux [SFU]
-Environment.f107Average = getAverageF107();                  % 81-day average F10.7 cm radio flux [SFU]
-Environment.magneticIndex = 5;                  % Geomagnetic activity index [unitless]
 
 %% Propagate Properties
 outputTimeStep = 10; % Time step at which to output data [sec]
