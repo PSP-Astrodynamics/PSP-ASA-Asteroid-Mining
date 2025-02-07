@@ -54,19 +54,11 @@ e_AB_2 = sqrt(1 - (pAB_2 / a_trans));
 % end of 1/25 added stuff
 
 % hrere
-
+%%
 alpha0 = 2*asin(sqrt(s/(2*a_trans)));
 
 beta0 = 2*asin(sqrt((s-c)/(2*a_trans)));
 
-% old
-%TOF = (1/sqrt(mu_S))* a_trans^(3/2) * (alpha0 - sin(alpha0) - (beta0 - sin(beta0)));
-%lambert_solutions = lambertSolver(a_trans, c, s, mu_S);
-%
-% pick 1A
-%a_trans = lambert_solutions{2,1};
-
-%p_trans = 4*a_trans*(s-r1)*(s-r2)*(sin(0.5*(alpha0+beta0))^2)/c^2;
 p_trans = 4*a_trans*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
 e_trans = sqrt(1-p_trans/a_trans);
 
@@ -98,7 +90,7 @@ theta_2 = acos(theta_hat(3)/sin(i_trans));
 theta_array = [theta_1, pi-theta_1, theta_2, 2 * pi - theta_2];
 theta = nonuniqueAngle(theta_array);
 omega_trans = theta - theta_star;
-
+%%
 
 figure()
 % plotting orbit from 1/25 added stuff section
