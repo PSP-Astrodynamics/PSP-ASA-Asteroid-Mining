@@ -73,22 +73,14 @@ r1_hat = r1_vec/r1;
 RAAN_trans = asin(h_hat(1)/sin(i_trans));
 
 
-figure
-
-% Creat a subplot one for 3D Orbit and the other for 2D Projected Orbit
-subplot(1, 2, 1) % 3D Projection
+% 3D Plot
+figure(1)
 plotOrbit3(RAAN_trans, i_trans, omega_trans, p_trans, e_trans, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
 
-% Extract data points from the current 3D plot
-h = gca;               % Get the current axes
-lines = h.Children;    % Get the line objects in the axes
-x_data = lines.XData;  % Extract x-data
-y_data = lines.YData;  % Extract y-data
-z_data = lines.ZData;  % Extract z-data
- 
-% Try to do 2D Projection of 3D orbit for the Lambert Orbit 
-subplot(1, 2, 2); % 2D Projection
-plot(x_data, y_data, 'r', LineWidth = 1)
+
+% Try to do 2D Projection of 3D orbit for the Lambert Orbit
+% 2D Plot
+plotOrbit2('g',1.5)
 
 
 
@@ -107,45 +99,42 @@ plot(x_data, y_data, 'r', LineWidth = 1)
 % MATLAB script to plot Hektor's orbit from the ephemeris file
 
 % Create a 3D plot of the orbit
-
-subplot(1, 2, 1) % 3D Projection
+figure(1)
 hold on;
 plot3(r_H_vec(:,1),r_H_vec(:,2),r_H_vec(:,3), 'LineWidth', 1.5);
 
-% Create a 2D projection of the orbit
-% Extract data points from the current 3D plot
-h = gca;               % Get the current axes
-lines = h.Children;    % Get the line objects in the axes
-x_data = lines.XData;  % Extract x-data
-y_data = lines.YData;  % Extract y-data
-z_data = lines.ZData;  % Extract z-data
 
-% Try to do 2D Projection of 3D orbit for the Lambert Orbit 
-subplot(1, 2, 2); % 2D Projection
-plot(x_data, y_data)
+% Try to do 2D Projection of 3D orbit for Hector Orbit
+figure(2)
+hold on
+plot(r_H_vec(:,1),r_H_vec(:,2),'r',LineWidth = 1.5)
 
-subplot(1, 2, 1) % 3D Projection
+% Plot in 3D
+figure(1)
 hold on;
 plot3(r_E_vec(:,1),r_E_vec(:,2),r_E_vec(:,3), 'LineWidth', 1.5)
 
-% % Create a 2D projection of the orbit
-% % Extract data points from the current 3D plot
-% h = gca;               % Get the current axes
-% lines = h.Children;    % Get the line objects in the axes
-% x_data = lines.XData;  % Extract x-data
-% y_data = lines.YData;  % Extract y-data
-% z_data = lines.ZData;  % Extract z-data
-% 
-% % Try to do 2D Projection of 3D orbit for the Lambert Orbit 
-subplot(1, 2, 2); % 2D Projection
-% plot(x_data, y_data)
+% Try to do 2D Projection of 3D orbit for the Lambert Orbit 
+figure(2)
+hold on
+plot(r_E_vec(:,1),r_E_vec(:,2), LineWidth = 1.5)
 
-subplot(1, 2, 1) % 3D Projection
+% Plot in 3D
+figure(1)
+hold on
 
 % Plot the Sun at the origin
 plot3(0, 0, 0, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'yellow');
 
-% Add labels and title
+% Plot in 2D
+figure(2)
+hold on
+
+% Plot the Sun at the origin in 2D
+plot(0, 0,'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'yellow');
+
+% Add labels and title for 3D Plot
+figure(1)
 xlabel('X Position (km)');
 ylabel('Y Position (km)');
 zlabel('Z Position (km)');
@@ -153,10 +142,35 @@ title('3D Orbit of Hektor Around the Sun');
 grid on;
 axis equal;
 
+% Add labels and title for 2D Plot
+figure(2)
+xlabel('X Position (km)');
+ylabel('Y Position (km)');
+title('2D Orbit of Hektor Around the Sun');
+grid on;
+axis equal;
+
+% 3D Plot
+figure(1)
+
+% Plot Position Vectors
 plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)])
 plot3([0,r1_vec(1)],[0,r1_vec(2)],[0,r1_vec(3)])
 
-% Add a legend
+% 2D Plot
+figure(2)
+
+% Plot Position Vectors in 2D
+plot([0,r2_vec(1)],[0,r2_vec(2)])
+plot([0,r1_vec(1)],[0,r1_vec(2)])
+
+
+
+% Add a legend for 3D and 2D
+figure(1)
+legend('Lambert Orbit','Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
+
+figure(2)
 legend('Lambert Orbit','Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
 
 %% function
@@ -222,4 +236,16 @@ function plotOrbitWithArrows(x, y, z, n, color, scale, grade)
     % Plot arrowheads only (no body)
     quiver3(x(idx), y(idx), z(idx), vx(idx), vy(idx), vz(idx), scale, color(1), 'MaxHeadSize', 1, 'AutoScale', 'off');  % Set 0 for arrow body size
     
+end
+
+function [] = plotOrbit2(color,W)
+
+    % Extract data points from the current 3D plot
+    h = gca;               % Get the current axes
+    lines = h.Children;    % Get the line objects in the axes
+    x_data = lines.XData;  % Extract x-data
+    y_data = lines.YData;  % Extract y-data
+
+    figure(2)
+    plot(x_data,y_data,color,LineWidth=W)
 end
