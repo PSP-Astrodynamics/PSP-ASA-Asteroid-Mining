@@ -40,9 +40,34 @@ IP_trans = (IP_E : IP_E : 100*IP_E);
 
 a_trans = (mu_S*(IP_trans./(2.*pi)).^2).^(1/3);
 
+% intialize matrix to zeros
+e_solutions = zeros(length(a_trans), 2);
+
+% create 100x2 matrix of eccentricity solutions for lambert solutions 1 & 2
+for i = 1:100
+    p_sol = lambertSolverP(a_trans(i), c, s, r1, r2);
+    pAB_1 = p_sol{2, 1};
+    pAB_2 = p_sol{2, 2};
+    e_AB_1 = sqrt(1 - (pAB_1 / a_trans(i)));
+    e_AB_2 = sqrt(1 - (pAB_2 / a_trans(i)));
+    e_solutions(i, :) = [e_AB_1, e_AB_2];
+end
+
+% plot eccentricity solutions vs semi major axes
+figure
+hold on
+plot(a_trans, e_solutions(:, 1), "o")
+plot(a_trans, e_solutions(:, 2), "^")
+legend("Solution 1", "Solution 2")
+title("Eccentricity vs. Semi-Major Axis")
+xlabel("Semi-Major axis (km)")
+ylabel("Eccentricity")
+grid on
+
+
 % 1/25 added stuff
-% Time of flight solutions
-TOF_sol = lambertSolverTOF(a_trans, c, s, mu_S);
+
+%{
 
 % p solutions
 p_sol = lambertSolverP(a_trans, c, s, r1, r2);
@@ -52,6 +77,8 @@ pAB_2 = p_sol{2, 2};
 e_AB_1 = sqrt(1 - (pAB_1 / a_trans));
 e_AB_2 = sqrt(1 - (pAB_2 / a_trans));
 % end of 1/25 added stuff
+
+%}
 
 % hrere
 
