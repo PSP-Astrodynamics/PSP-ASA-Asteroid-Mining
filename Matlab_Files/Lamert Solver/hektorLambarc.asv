@@ -54,7 +54,7 @@ for i = 1:100
 end
 
 % plot eccentricity solutions vs semi major axes
-figure(1)
+figure
 hold on
 plot(a_trans, e_solutions(:, 1), "o")
 plot(a_trans, e_solutions(:, 2), "^")
@@ -63,7 +63,9 @@ title("Eccentricity vs. Semi-Major Axis")
 xlabel("Semi-Major axis (km)")
 ylabel("Eccentricity")
 grid on
-hold off
+
+plotCycler(a_trans(5), e_solutions(5), r1_vec, r2_vec, r1, r1, s, c)
+
 
 % hold on
 % plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_2, e_AB_2, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
@@ -84,10 +86,7 @@ hold off
 
 % MATLAB script to plot Hektor's orbit from the ephemeris file
 
-figure(2)
 % Create a 3D plot of the orbit
-hold on
-plotCycler(a_trans(5), e_solutions(5), r1_vec, r2_vec, r1, r1, s, c)
 hold on;
 plot3(r_H_vec(:,1),r_H_vec(:,2),r_H_vec(:,3), 'LineWidth', 1.5);
 hold on;
@@ -95,8 +94,6 @@ plot3(r_E_vec(:,1),r_E_vec(:,2),r_E_vec(:,3), 'LineWidth', 1.5)
 
 % Plot the Sun at the origin
 plot3(0, 0, 0, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'yellow');
-
-
 
 % Add labels and title
 xlabel('X Position (km)');
@@ -110,7 +107,7 @@ plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)])
 plot3([0,r1_vec(1)],[0,r1_vec(2)],[0,r1_vec(3)])
 
 % Add a legend
-legend('Lambert Orbit1', 'Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
+legend('Lambert Orbit1', 'Lambert Orbit 2', 'Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
 
 %% function
 
