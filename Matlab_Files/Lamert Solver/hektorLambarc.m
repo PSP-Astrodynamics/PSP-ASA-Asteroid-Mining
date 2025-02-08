@@ -40,71 +40,99 @@ IP_trans = (IP_E : IP_E : 100*IP_E);
 
 a_trans = (mu_S*(IP_trans./(2.*pi)).^2).^(1/3);
 
-% % old
-% % Time of flight solutions
-% % TOF_sol = lambertSolverTOF(a_trans, c, s, mu_S);
-% 
-% % old
-% % % p solutions
-% % p_sol = lambertSolverP(a_trans, c, s, r1, r2);
-% % pAB_1 = p_sol{2, 1};
-% % pAB_2 = p_sol{2, 2};
-% % % solve for eccentricity using different p vals
-% % e_AB_1 = sqrt(1 - (pAB_1 / a_trans));
-% % e_AB_2 = sqrt(1 - (pAB_2 / a_trans));
-% % % end of 1/25 added stuff
-% % 
-% % % hrere
-% 
-% alpha0 = 2*asin(sqrt(s/(2*a_trans)));
-% 
-% beta0 = 2*asin(sqrt((s-c)/(2*a_trans)));
-% 
-% % old
-% %TOF = (1/sqrt(mu_S))* a_trans^(3/2) * (alpha0 - sin(alpha0) - (beta0 - sin(beta0)));
-% %lambert_solutions = lambertSolver(a_trans, c, s, mu_S);
-% %
-% % pick 1A
-% %a_trans = lambert_solutions{2,1};
-% 
-% p_trans = 4*a_trans*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
-% e_trans = sqrt(1-p_trans/a_trans);
-% 
-% TA = acos(dot(r1_vec,r2_vec)/(r1*r2));
-% 
-% f = 1-(r2/p_trans)*(1-cos(TA));
-% g = r1*r2*sin(TA)/sqrt(mu_S*p_trans);
-% 
-% v1_vec = (r2_vec-f*r1_vec)/g;
-% 
-% r1_hat = r1_vec/r1;
-% theta_star = acos((p_trans / (r1) - 1) / e_trans);
-% 
-% h_vec = cross(r1_vec, r2_vec);
-% h_hat = h_vec/(norm(h_vec));
-% theta_hat = cross(h_hat, r1_hat);
-% i_trans = acos(dot(h_hat,[0,0,1]));
-% 
-% RAAN_trans_1 = asin(h_hat(1)/sin(i_trans));
-% RAAN_trans_3 = acos(-h_hat(2)/sin(i_trans));
-% 
-% 
-% RAAN_array = [RAAN_trans_1, pi - RAAN_trans_1, RAAN_trans_3, 2*pi - RAAN_trans_3];
-% RAAN_trans = nonuniqueAngle(RAAN_array);
-% 
-% theta_1 = asin(r1_hat(3)/sin(i_trans));
-% theta_2 = acos(theta_hat(3)/sin(i_trans));
-% 
-% theta_array = [theta_1, pi-theta_1, theta_2, 2 * pi - theta_2];
-% theta = nonuniqueAngle(theta_array);
-% omega_trans = theta - theta_star;
-% 
-% 
-% figure()
-% % plotting orbit from 1/25 added stuff section
-% plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_1, e_AB_1, linspace(0,2*pi,1000), 'b', 1, 1, [0,0,0],0,1.5)
-% hold on
-% plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_2, e_AB_2, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
+% intialize matrix to zeros
+e_solutions = zeros(length(a_trans), 2);
+
+% create 100x2 matrix of eccentricity solutions for lambert solutions 1 & 2
+for i = 1:100
+    p_sol = lambertSolverP(a_trans(i), c, s, r1, r2);
+    pAB_1 = p_sol{2, 1};
+    pAB_2 = p_sol{2, 2};
+    e_AB_1 = sqrt(1 - (pAB_1 / a_trans(i)));
+    e_AB_2 = sqrt(1 - (pAB_2 / a_trans(i)));
+    e_solutions(i, :) = [e_AB_1, e_AB_2];
+end
+
+% plot eccentricity solutions vs semi major axes
+figure
+hold on
+plot(a_trans, e_solutions(:, 1), "o")
+plot(a_trans, e_solutions(:, 2), "^")
+legend("Solution 1", "Solution 2")
+title("Eccentricity vs. Semi-Major Axis")
+xlabel("Semi-Major axis (km)")
+ylabel("Eccentricity")
+grid on
+
+
+% 1/25 added stuff
+
+%{
+
+% p solutions
+p_sol = lambertSolverP(a_trans, c, s, r1, r2);
+pAB_1 = p_sol{2, 1};
+pAB_2 = p_sol{2, 2};
+% solve for eccentricity using different p vals
+e_AB_1 = sqrt(1 - (pAB_1 / a_trans));
+e_AB_2 = sqrt(1 - (pAB_2 / a_trans));
+% end of 1/25 added stuff
+
+%}
+
+% hrere
+
+alpha0 = 2*asin(sqrt(s/(2*a_trans)));
+
+beta0 = 2*asin(sqrt((s-c)/(2*a_trans)));
+
+% old
+%TOF = (1/sqrt(mu_S))* a_trans^(3/2) * (alpha0 - sin(alpha0) - (beta0 - sin(beta0)));
+%lambert_solutions = lambertSolver(a_trans, c, s, mu_S);
+%
+% pick 1A
+%a_trans = lambert_solutions{2,1};
+
+%p_trans = 4*a_trans*(s-r1)*(s-r2)*(sin(0.5*(alpha0+beta0))^2)/c^2;
+p_trans = 4*a_trans*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
+e_trans = sqrt(1-p_trans/a_trans);
+
+TA = acos(dot(r1_vec,r2_vec)/(r1*r2));
+
+f = 1-(r2/p_trans)*(1-cos(TA));
+g = r1*r2*sin(TA)/sqrt(mu_S*p_trans);
+
+v1_vec = (r2_vec-f*r1_vec)/g;
+
+r1_hat = r1_vec/r1;
+theta_star = acos((p_trans / (r1) - 1) / e_trans);
+
+h_vec = cross(r1_vec, r2_vec);
+h_hat = h_vec/(norm(h_vec));
+theta_hat = cross(h_hat, r1_hat);
+i_trans = acos(dot(h_hat,[0,0,1]));
+
+RAAN_trans_1 = asin(h_hat(1)/sin(i_trans));
+RAAN_trans_3 = acos(-h_hat(2)/sin(i_trans));
+
+
+RAAN_array = [RAAN_trans_1, pi - RAAN_trans_1, RAAN_trans_3, 2*pi - RAAN_trans_3];
+RAAN_trans = nonuniqueAngle(RAAN_array);
+
+theta_1 = asin(r1_hat(3)/sin(i_trans));
+theta_2 = acos(theta_hat(3)/sin(i_trans));
+
+theta_array = [theta_1, pi-theta_1, theta_2, 2 * pi - theta_2];
+theta = nonuniqueAngle(theta_array);
+omega_trans = theta - theta_star;
+
+
+figure()
+% plotting orbit from 1/25 added stuff section
+plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_1, e_AB_1, linspace(0,2*pi,1000), 'b', 1, 1, [0,0,0],0,1.5)
+hold on
+plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_2, e_AB_2, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
+
 
 
 %% plot
@@ -220,50 +248,4 @@ function val = nonuniqueAngle(array)
     
     % Identify values that are repeated
     val = uniqueVals(counts > 1);
-end
-
-function plotCycler(semiMajorAxis, eccentricity, mu_S, s, c, r1_vec, r2_vec)
-    
-    r1 = norm(r1_vec);
-    r2 = norm(r2_vec);
-
-    alpha0 = 2*asin(sqrt(s/(2*semiMajorAxis)));
-    beta0 = 2*asin(sqrt((s-c)/(2*semiMajorAxis)));
-
-    p_trans = 4*semiMajorAxis*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
-    % e_trans = sqrt(1-p_trans/a_trans);
-
-    TA = acos(dot(r1_vec,r2_vec)/(r1*r2));
-
-    %f = 1-(r2/p_trans)*(1-cos(TA));
-    g = r1*r2*sin(TA)/sqrt(mu_S*p_trans);
-
-    %v1_vec = (r2_vec-f*r1_vec)/g;
-
-    r1_hat = r1_vec/r1;
-    theta_star = acos((p_trans / (r1) - 1) / eccentricity);
-
-    h_vec = cross(r1_vec, r2_vec);
-    h_hat = h_vec/(norm(h_vec));
-    theta_hat = cross(h_hat, r1_hat);
-    i_trans = acos(dot(h_hat,[0,0,1]));
-
-    RAAN_trans_1 = asin(h_hat(1)/sin(i_trans));
-    RAAN_trans_3 = acos(-h_hat(2)/sin(i_trans));
-
-
-    RAAN_array = [RAAN_trans_1, pi - RAAN_trans_1, RAAN_trans_3, 2*pi - RAAN_trans_3];
-    RAAN_trans = nonuniqueAngle(RAAN_array);
-
-    theta_1 = asin(r1_hat(3)/sin(i_trans));
-    theta_2 = acos(theta_hat(3)/sin(i_trans));
-
-    theta_array = [theta_1, pi-theta_1, theta_2, 2 * pi - theta_2];
-    theta = nonuniqueAngle(theta_array);
-    omega_trans = theta - theta_star;
-
-
-    figure(1)
-    % plotting orbit from 1/25 added stuff section
-    plotOrbit3(RAAN_trans, i_trans, omega_trans, p_trans, eccentricity, linspace(0,2*pi,1000), 'b', 1, 1, [0,0,0],0,1.5)
 end
