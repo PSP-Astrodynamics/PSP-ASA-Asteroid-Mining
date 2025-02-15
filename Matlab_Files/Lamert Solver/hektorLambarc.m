@@ -11,7 +11,7 @@ data = importdata(filename);
 % Extract columns from the data
 time = data(:, 1); % Julian Date (not used for plotting, but kept for reference)
 
-[minZ, idx_AN] = min(abs(data(:,4)))
+[minZ, idx_AN] = min(abs(data(:,4)));
 
 r_H_vec = [data(:, 2),data(:, 3),data(:, 4)];
 %time, x, y, z
