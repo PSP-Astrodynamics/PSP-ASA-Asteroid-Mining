@@ -9,12 +9,11 @@ function p_solution = lambertSolverP(a, c, s, r1, r2)
 
     pAB_1 = 4*a*(s-r1)*(s-r2)*(sin(0.5*(alpha0+beta0))^2)/c^2;
     pAB_2 = 4*a*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
-    pAB_1other = 4*a*(s-r1)*(s-r2)*(sin(0.5*(alphaOther+betaOther))^2)/c^2;
-    pAB_2other = 4*a*(s-r1)*(s-r2)*(sin(0.5*(alphaOther-betaOther))^2)/c^2;
+    pAB_1Other
 
     %pH_1 = 4*a*(s-r1)*(s-r2)*(sinh(0.5*(alphaH+betaH))^2)/c^2;
     %pH_2 = 4*a*(s-r1)*(s-r2)*(sinh(0.5*(alphaH-betaH))^2)/c^2;
 
-    p_solution = {'pAB_1', 'pAB_2', 'pAB_1other', 'pAB_2other'; pAB_1, pAB_2, pAB_1other, pAB_2other};
+    p_solution = {'pAB_1', 'pAB_2'; pAB_1, pAB_2};
 end
 

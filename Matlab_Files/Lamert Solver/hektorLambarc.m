@@ -41,23 +41,31 @@ IP_trans = (IP_E : IP_E : 100*IP_E);
 a_trans = (mu_S*(IP_trans./(2.*pi)).^2).^(1/3);
 
 % intialize matrix to zeros
-e_solutions = zeros(length(a_trans), 2);
+e_solutions = zeros(length(a_trans), 4);
 
 % create 100x2 matrix of eccentricity solutions for lambert solutions 1 & 2
 for i = 1:100
     p_sol = lambertSolverP(a_trans(i), c, s, r1, r2);
     pAB_1 = p_sol{2, 1};
     pAB_2 = p_sol{2, 2};
+    pAB_1other = p_sol{2, 3};
+    pAB_2other = p_sol{2, 4};
     e_AB_1 = sqrt(1 - (pAB_1 / a_trans(i)));
     e_AB_2 = sqrt(1 - (pAB_2 / a_trans(i)));
-    e_solutions(i, :) = [e_AB_1, e_AB_2];
+    e_AB_1other = sqrt(1 - (pAB_1other / a_trans(i)));
+    e_AB_2other = sqrt(1 - (pAB_2other / a_trans(i)));
+    e_solutions(i, :) = [e_AB_1, e_AB_2, e_AB_1other, e_AB_2other];
 end
+
+disp(p_sol)
 
 % plot eccentricity solutions vs semi major axes
 figure(1)
 hold on
 plot(a_trans, e_solutions(:, 1), "o")
 plot(a_trans, e_solutions(:, 2), "^")
+plot(a_trans, e_solutions(:, 3), 'pentagram')
+plot(a_trans, e_solutions(:, 4), 'v')
 legend("Solution 1", "Solution 2")
 title("Eccentricity vs. Semi-Major Axis")
 xlabel("Semi-Major axis (km)")
@@ -112,6 +120,9 @@ plot3([0,r1_vec(1)],[0,r1_vec(2)],[0,r1_vec(3)])
 % Add a legend
 legend('Lambert Orbit1', 'Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
 
+% plotting tof vs sma
+lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
+
 %% function
 
 function TOF_solutions = lambertSolver(a, c, s, mu)
@@ -127,7 +138,6 @@ function TOF_solutions = lambertSolver(a, c, s, mu)
     
     % answer key: [1A; 1B; 2A; 2B]
     TOF_solutions = {'1A', '1B', '2A', '2B'; TOF1A, TOF1B, TOF2A, TOF2B};
-    
 end
 
 function [] = plotOrbit3(RAAN, inc, omega, p, e, theta_star, color, scale, grade, c,arrow,W)
