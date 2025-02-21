@@ -87,7 +87,7 @@ hold off
 figure(2)
 % Create a 3D plot of the orbit
 hold on
-plotCycler(a_trans(5), e_solutions(5), r1_vec, r2_vec, r1, r1, s, c)
+plotCycler(a_trans(5), e_solutions(5), r1_vec, r2_vec, r1, r2, s, c)
 hold on;
 plot3(r_H_vec(:,1),r_H_vec(:,2),r_H_vec(:,3), 'LineWidth', 1.5);
 hold on;
