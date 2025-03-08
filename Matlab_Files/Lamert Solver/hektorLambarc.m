@@ -40,7 +40,7 @@ c = norm(r2_vec - r1_vec);
 s = 1/2 * (r1 + r2 + c);
 
 IP_E = 365.25*24*3600; % s
-IP_trans = (IP_E : IP_E : 100*IP_E);
+IP_trans = (6*IP_E : IP_E : 100*IP_E)
 
 a_trans = (mu_S*(IP_trans./(2.*pi)).^2).^(1/3);
 
@@ -48,7 +48,7 @@ a_trans = (mu_S*(IP_trans./(2.*pi)).^2).^(1/3);
 e_solutions = zeros(length(a_trans), 4);
 
 % create 100x2 matrix of eccentricity solutions for lambert solutions 1 & 2
-for i = 1:100
+for i = 1:length(a_trans)
     p_sol = lambertSolverP(a_trans(i), c, s, r1, r2);
     pAB_1 = p_sol{2, 1};
     pAB_2 = p_sol{2, 2};
