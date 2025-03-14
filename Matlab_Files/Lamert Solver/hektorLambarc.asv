@@ -11,7 +11,7 @@ data = importdata(filename);
 % Extract columns from the data
 time = data(:, 1); % Julian Date (not used for plotting, but kept for reference)
 
-[minZ, idx_AN] = min(abs(data(:,4)))
+[minZ, idx_AN] = min(abs(data(:,4)));
 
 r_H_vec = [data(:, 2),data(:, 3),data(:, 4)];
 %time, x, y, z
@@ -46,14 +46,15 @@ a_trans = (mu_S*(IP_trans./(2.*pi)).^2).^(1/3);
 
 % intialize matrix to zeros
 e_solutions = zeros(length(a_trans), 4);
-
+p_solutions = zeros()
 % create 100x2 matrix of eccentricity solutions for lambert solutions 1 & 2
 for i = 1:100
     p_sol = lambertSolverP(a_trans(i), c, s, r1, r2);
-    pAB_1 = p_sol{2, 1};
-    pAB_2 = p_sol{2, 2};
-    pAB_1other = p_sol{2, 3};
-    pAB_2other = p_sol{2, 4};
+    % pAB_1 = p_sol{2, 1};
+    % pAB_2 = p_sol{2, 2};
+    % pAB_1other = p_sol{2, 3};
+    % pAB_2other = p_sol{2, 4};
+    p_solutions(i,:) = [p_sol{2, 1}, p_sol{2, 2}, p_sol{2, 3}, p_sol{2, 4}];    % *************** NEW
     e_AB_1 = sqrt(1 - (pAB_1 / a_trans(i)));
     e_AB_2 = sqrt(1 - (pAB_2 / a_trans(i)));
     e_AB_1other = sqrt(1 - (pAB_1other / a_trans(i)));
@@ -99,7 +100,12 @@ hold off
 figure(2)
 % Create a 3D plot of the orbit
 hold on
-plotCycler(a_trans(5), e_solutions(5), r1_vec, r2_vec, r1, r1, s, c)
+for i = 6:16
+    plotCycler1(a_trans(i), e_solutions(i,1), r1_vec, r2_vec, r1, r2, s, c, p_solutions(i,1))
+    plotCycler2(a_trans(i), e_solutions(i,2), r1_vec, r2_vec, r1, r2, s, c, p_solutions(i,2))
+end
+
+% plotCycler(a_trans(5), e_solutions(5), r1_vec, r2_vec, r1, r1, s, c)
 hold on;
 plot3(r_H_vec(:,1),r_H_vec(:,2),r_H_vec(:,3), 'LineWidth', 1.5);
 hold on;
@@ -122,7 +128,7 @@ plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)])
 plot3([0,r1_vec(1)],[0,r1_vec(2)],[0,r1_vec(3)])
 
 % Add a legend
-legend('Lambert Orbit1', 'Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
+legend('Lambert Orbit 1','Lambert Orbit 2', 'Hektor Orbit', 'Earth','Sun', 'Hektor intial Position vector', 'Earth intial position vector');
 
 % plotting tof vs sma
 lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
@@ -130,7 +136,10 @@ lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
 figure(4)
 plot3(data(:, 2), data(:, 3), data(:, 4))
 hold on
-plot3(r1_vec(1), r1_vec(1), r1_vec(3))
+plot3([0, r1_vec(1)], [0, r1_vec(2)], [0, r1_vec(3)], 'b')
+plot3([0, r2_vec(1)], [0, r2_vec(2)], [0, r2_vec(3)], 'r')
+axis equal
+grid on
 
 %% function
 
@@ -209,44 +218,62 @@ function val = nonuniqueAngle(array)
     val = uniqueVals(counts > 1);
 end
 
-function plotCycler(semiMajorAxis, eccentricity, r1_vec, r2_vec, r1, r2, s, c)
- 
+function plotCycler1(semiMajorAxis, eccentricity, r1_vec, r2_vec, r1, r2, s, c, p_trans)
+   alpha0 = 2*asin(sqrt(s/(2*semiMajorAxis)));
+   beta0 = 2*asin(sqrt((s-c)/(2*semiMajorAxis)));
+   %p_trans = 4*semiMajorAxis*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
+   %e_trans = sqrt(1-p_trans/semiMajorAxis);
+   %TA = acos(dot(r1_vec,r2_vec)/(r1*r2));
+   %
+   % f = 1-(r2/p_trans)*(1-cos(TA));
+   % g = r1*r2*sin(TA)/sqrt(mu_S*p_trans);
+   %
+   % v1_vec = (r2_vec-f*r1_vec)/g;
+   r1_hat = r1_vec/r1;
+   theta_star = acos((p_trans / (r1) - 1) / eccentricity);
+   h_vec = cross(r1_vec, r2_vec);
+   h_hat = h_vec/(norm(h_vec));
+   theta_hat = cross(h_hat, r1_hat);
+   i_trans = acos(dot(h_hat,[0,0,1]));
+   RAAN_trans_1 = asin(h_hat(1)/sin(i_trans));
+   RAAN_trans_3 = acos(-h_hat(2)/sin(i_trans));
+   RAAN_array = [RAAN_trans_1, pi - RAAN_trans_1, RAAN_trans_3, 2*pi - RAAN_trans_3];
+   RAAN_trans = nonuniqueAngle(RAAN_array);
+   theta_1 = asin(r1_hat(3)/sin(i_trans));
+   theta_2 = acos(theta_hat(3)/sin(i_trans));
+   theta_array = [theta_1, pi-theta_1, theta_2, 2 * pi - theta_2];
+   theta = nonuniqueAngle(theta_array);
+   omega_trans = theta - theta_star;
+  
+   plotOrbit3(RAAN_trans, i_trans, omega_trans, p_trans, eccentricity, linspace(0,2*pi,1000), 'b', 1, 1, [0,0,0],0,1.5)
+end
 
-    alpha0 = 2*asin(sqrt(s/(2*semiMajorAxis)));
-    beta0 = 2*asin(sqrt((s-c)/(2*semiMajorAxis)));
-
-    p_trans = 4*semiMajorAxis*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
-    %e_trans = sqrt(1-p_trans/semiMajorAxis);
-
-    %TA = acos(dot(r1_vec,r2_vec)/(r1*r2));
-    %
-    % f = 1-(r2/p_trans)*(1-cos(TA));
-    % g = r1*r2*sin(TA)/sqrt(mu_S*p_trans);
-    % 
-    % v1_vec = (r2_vec-f*r1_vec)/g;
-
-    r1_hat = r1_vec/r1;
-    theta_star = acos((p_trans / (r1) - 1) / eccentricity);
-
-    h_vec = cross(r1_vec, r2_vec);
-    h_hat = h_vec/(norm(h_vec));
-    theta_hat = cross(h_hat, r1_hat);
-    i_trans = acos(dot(h_hat,[0,0,1]));
-
-    RAAN_trans_1 = asin(h_hat(1)/sin(i_trans));
-    RAAN_trans_3 = acos(-h_hat(2)/sin(i_trans));
-
-
-    RAAN_array = [RAAN_trans_1, pi - RAAN_trans_1, RAAN_trans_3, 2*pi - RAAN_trans_3];
-    RAAN_trans = nonuniqueAngle(RAAN_array);
-
-    theta_1 = asin(r1_hat(3)/sin(i_trans));
-    theta_2 = acos(theta_hat(3)/sin(i_trans));
-
-    theta_array = [theta_1, pi-theta_1, theta_2, 2 * pi - theta_2];
-    theta = nonuniqueAngle(theta_array);
-    omega_trans = theta - theta_star;
-    
-    plotOrbit3(RAAN_trans, i_trans, omega_trans, p_trans, eccentricity, linspace(0,2*pi,1000), 'b', 1, 1, [0,0,0],0,1.5)
-
+function plotCycler2(semiMajorAxis, eccentricity, r1_vec, r2_vec, r1, r2, s, c, p_trans)
+   alpha0 = 2*asin(sqrt(s/(2*semiMajorAxis)));
+   beta0 = 2*asin(sqrt((s-c)/(2*semiMajorAxis)));
+   %p_trans = 4*semiMajorAxis*(s-r1)*(s-r2)*(sin(0.5*(alpha0-beta0))^2)/c^2;
+   %e_trans = sqrt(1-p_trans/semiMajorAxis);
+   %TA = acos(dot(r1_vec,r2_vec)/(r1*r2));
+   %
+   % f = 1-(r2/p_trans)*(1-cos(TA));
+   % g = r1*r2*sin(TA)/sqrt(mu_S*p_trans);
+   %
+   % v1_vec = (r2_vec-f*r1_vec)/g;
+   r1_hat = r1_vec/r1;
+   theta_star = acos((p_trans / (r1) - 1) / eccentricity);
+   h_vec = cross(r1_vec, r2_vec);
+   h_hat = h_vec/(norm(h_vec));
+   theta_hat = cross(h_hat, r1_hat);
+   i_trans = acos(dot(h_hat,[0,0,1]));
+   RAAN_trans_1 = asin(h_hat(1)/sin(i_trans));
+   RAAN_trans_3 = acos(-h_hat(2)/sin(i_trans));
+   RAAN_array = [RAAN_trans_1, pi - RAAN_trans_1, RAAN_trans_3, 2*pi - RAAN_trans_3];
+   RAAN_trans = nonuniqueAngle(RAAN_array);
+   theta_1 = asin(r1_hat(3)/sin(i_trans));
+   theta_2 = acos(theta_hat(3)/sin(i_trans));
+   theta_array = [theta_1, pi-theta_1, theta_2, 2 * pi - theta_2];
+   theta = nonuniqueAngle(theta_array);
+   omega_trans = theta - theta_star;
+  
+   plotOrbit3(RAAN_trans, i_trans, omega_trans, p_trans, eccentricity, linspace(0,2*pi,1000), 'r', 1, 1, [0,0,0],0,1.5)
 end
