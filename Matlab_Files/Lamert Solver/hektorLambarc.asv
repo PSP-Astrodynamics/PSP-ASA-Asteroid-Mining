@@ -256,15 +256,15 @@ function plotCycler(semiMajorAxis, eccentricity, r1_vec, r2_vec, r1, r2, s, c)
 end
 
 function [omega, theta, i] = orbitparameters(r1, r2)
-    
-    r1mag = norm(r1);
-    r1hat = r1/norm(r1mag);
+    r = r2 - r1;
+    rmag = norm(r);
+    rhat = r/norm(rmag);
 
     htrans = cross(r1, r2);
     htransmag = norm(htrans);
     hhat = htrans/htransmag;
     
-    thetahat = cross(r1hat, hhat);
+    thetahat = cross(rhat, hhat);
 
     i = acos(hhat(3));
     
@@ -272,7 +272,7 @@ function [omega, theta, i] = orbitparameters(r1, r2)
     omegatrans2 = acos(-hhat(2)/sin(i));
     omega = nonuniqueAngle([omegatrans1, pi - omegatrans1, omegatrans2, 2*pi - omegatrans2]);
 
-    theta_1 = asin(r1hat(3)/sin(i));
+    theta_1 = asin(rhat(3)/sin(i));
     theta_2 = acos(thetahat(3)/sin(1));
     theta = nonuniqueAngle([theta_1, pi-theta_1, theta_2, 2 * pi - theta_2]);
 end
