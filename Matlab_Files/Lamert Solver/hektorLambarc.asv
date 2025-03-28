@@ -129,7 +129,6 @@ grid on;
 grid minor;
 axis equal;
 
-
 % Add a legend
 legend('Hektor Orbit', 'Earth','Sun', 'Intial Position vector', 'Target Position vector', 'Location','southwest');
 
