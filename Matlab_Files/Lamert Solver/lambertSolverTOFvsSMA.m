@@ -1,5 +1,5 @@
-function [] = lambertSolverTOFvsSMA(R,mu,c,s)
-
+function [] = lambertSolverTOFvsSMA(R,mu,c,s)    
+    
     %R is characteristic scale, typically radius of planet
     
     a_range = R*linspace(0,18,10000);
@@ -66,17 +66,58 @@ function [] = lambertSolverTOFvsSMA(R,mu,c,s)
 
     % Formatting the plot
     grid on
-    xlabel('Semimajor Axis [km]', 'FontSize', 12, 'FontWeight', 'bold');
-    ylabel('Time of Flight [hrs]', 'FontSize', 12, 'FontWeight', 'bold');
+    grid minor
+    xlabel('Semimajor Axis [AU]', 'FontSize', 12, 'FontWeight', 'bold');
+    ylabel('Time of Flight [yrs]', 'FontSize', 12, 'FontWeight', 'bold');
 
     % 18 hours for earth
     ylim([0, 3*TOF_min1/3600]);
     xlim([0, 10*R])
     
     % Add a legend with customized labels
-    legend({'','','','','','','','','1A', '1B', '2A', '2B', '1P', '2P', '1H', '2H', 'TOF_{min,1}', 'TOF_{min,2}'}, ...
-           'Location', 'northwest', 'FontSize', 10);
+    legend({'','','','','','','','','1A', '1B', '2A', '2B', '1P', '2P', '1H', '2H', 'TOF$_{min,1}$', 'TOF$_{min,2}$'}, ...
+           'Location', 'northeast', 'FontSize', 10);
     
     % Add title (optional)
     title('Time of Flight vs Semimajor Axis', 'FontSize', 14, 'FontWeight', 'bold');
+
+    % Astronomical Units in km
+    AU = 149597870.7; % km    
+    
+    % --- Get current x-axis limits in km and convert to AU ---
+    x_km_limits = xlim;
+    x_au_min = floor(x_km_limits(1) / AU);
+    x_au_max = ceil(x_km_limits(2) / AU);
+    
+    % --- Generate tick values from floor(min) to ceil(max), always including 0 ---
+    x_ticks_au = x_au_min : 3 : x_au_max;
+    x_ticks_km = x_ticks_au * AU;
+    
+    % --- Apply ticks and labels ---
+    set(gca, 'XTick', x_ticks_km);
+    set(gca, 'XTickLabel', string(x_ticks_au));
+    
+    % --- Force axis limits to match AU tick range exactly ---
+    xlim([x_au_min, x_au_max] * AU);
+
+    % Years in hours
+    year = 8760; % hr    
+    
+    % --- Get current x-axis limits in km and convert to AU ---
+    y_hr_limits = ylim;
+    y_year_min = floor(y_hr_limits(1) / year);
+    y_year_max = ceil(y_hr_limits(2) / year);
+    
+    % --- Generate tick values from floor(min) to ceil(max), always including 0 ---
+    y_ticks_year = y_year_min : 2 : y_year_max;
+    y_ticks_hr = y_ticks_year * year;
+    
+    % --- Apply ticks and labels ---
+    set(gca, 'YTick', y_ticks_hr);
+    set(gca, 'YTickLabel', string(y_ticks_year));
+    
+    % --- Force axis limits to match AU tick range exactly ---
+    ylim([y_year_min, y_year_max] * year);
+
+
 end

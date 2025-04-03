@@ -2,7 +2,7 @@ clc
 clear
 close all
 
-% Plot formatting
+ % Plot formatting
 set(groot, 'defaultTextInterpreter', 'latex')
 set(groot, 'defaultAxesTickLabelInterpreter', 'latex')
 set(groot, 'defaultLegendInterpreter', 'latex')
@@ -74,13 +74,14 @@ plot(a_trans, e_solutions(:, 1), "o")
 plot(a_trans, e_solutions(:, 2), "^")
 plot(a_trans, e_solutions(:, 3), 'pentagram')
 plot(a_trans, e_solutions(:, 4), 'v')
-legend("Solution 1", "Solution 2")
-title("Eccentricity vs. Semi-Major Axis")
-xlabel("Semi-Major axis (km)")
-ylabel("Eccentricity")
+legend("Solution 1", "Solution 2", location = "northwest", FontSize = 10)
+title("Eccentricity vs. Semi-Major Axis", 'FontSize', 14, 'FontWeight', 'bold')
+xlabel("Semi-Major Axis (AU)", 'FontSize', 12, 'FontWeight', 'bold')
+ylabel("Eccentricity", 'FontSize', 12, 'FontWeight', 'bold')
 grid on
 grid minor
 hold off
+change_axis_from_Km_to_AU(true, false);
 
 % hold on
 % plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_2, e_AB_2, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
@@ -117,21 +118,24 @@ plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)], 'Color', '#7E2F8E','LineWidth',
 hold on
 for index = 6:16
     plotCycler(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1), '#4DBEEE')
-    plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#4D88FE')
+    plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2')
 end
 
 % Add labels and title
-xlabel('X Position (km)');
-ylabel('Y Position (km)');
-zlabel('Z Position (km)');
-title('3D Orbit of Hektor Around the Sun');
+xlabel('X Position (AU)', 'FontSize', 12, 'FontWeight', 'bold');
+ylabel('Y Position (AU)', 'FontSize', 12, 'FontWeight', 'bold');
+zlabel('Z Position (AU)', 'FontSize', 12, 'FontWeight', 'bold');
+title('2D Orbit of Hektor Around the Sun', 'FontSize', 14, 'FontWeight', 'bold');
 grid on;
 grid minor;
 axis equal;
-
+change_axis_from_Km_to_AU(true, true);
 
 % Add a legend
-legend('Hektor Orbit', 'Earth','Sun', 'Intial Position vector', 'Target Position vector', 'Location','southwest');
+legend('Hektor Orbit', 'Earth','Sun', 'Intial Position vector', 'Target Position vector', 'Location','southwest', FontSize = 10);
+
+% plotting tof vs sma
+lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
 
 
 %% function
@@ -173,7 +177,7 @@ function [] = plotOrbit3(RAAN, inc, omega, p, e, theta_star, color, scale, grade
     z = r_vec_xyz(3,:) + c(3);
     
 
-    plot3(x,y,z, 'Color', color, LineWidth=W)
+    plot3(x, y, z, 'Color', color, LineWidth=W)
     hold on
     if (arrow == 1)
         plotOrbitWithArrows(x, y, z, length(x)/10, color, scale, grade)
@@ -243,4 +247,45 @@ function [Omega, theta, i] = orbitparameters(r1, r2)
     theta_1 = asin(r1hat(3)/sin(i));
     theta_2 = acos(thetahat(3)/sin(i));
     theta = nonuniqueAngle([theta_1, pi-theta_1, theta_2, 2 * pi - theta_2]);
+end
+
+function change_axis_from_Km_to_AU(x_axis, y_axis)
+    % Astronomical Units in km
+    AU = 149597870.7; % km    
+    
+    if x_axis
+        % --- Get current x-axis limits in km and convert to AU ---
+        x_km_limits = xlim;
+        x_au_min = floor(x_km_limits(1) / AU);
+        x_au_max = ceil(x_km_limits(2) / AU);
+        
+        % --- Generate tick values from floor(min) to ceil(max), always including 0 ---
+        x_ticks_au = x_au_min : 3 : x_au_max;
+        x_ticks_km = x_ticks_au * AU;
+        
+        % --- Apply ticks and labels ---
+        set(gca, 'XTick', x_ticks_km);
+        set(gca, 'XTickLabel', string(x_ticks_au));
+        
+        % --- Force axis limits to match AU tick range exactly ---
+        xlim([x_au_min, x_au_max] * AU);
+    end
+    
+    if y_axis
+        % --- Get current y-axis limits in km and convert to AU ---
+        y_km_limits = ylim;
+        y_au_min = floor(y_km_limits(1) / AU);
+        y_au_max = ceil(y_km_limits(2) / AU);
+        
+        % --- Generate tick values from floor(min) to ceil(max), always including 0 ---
+        y_ticks_au = y_au_min : 2 : y_au_max;
+        y_ticks_km = y_ticks_au * AU;
+        
+        % --- Apply ticks and labels ---
+        set(gca, 'YTick', y_ticks_km);
+        set(gca, 'YTickLabel', string(y_ticks_au));
+        
+        % --- Force axis limits to match AU tick range exactly ---
+        ylim([y_au_min, y_au_max] * AU);
+    end
 end
