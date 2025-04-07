@@ -125,7 +125,7 @@ end
 xlabel('X Position (AU)', 'FontSize', 12, 'FontWeight', 'bold');
 ylabel('Y Position (AU)', 'FontSize', 12, 'FontWeight', 'bold');
 zlabel('Z Position (AU)', 'FontSize', 12, 'FontWeight', 'bold');
-title('2D Orbit of Hektor Around the Sun', 'FontSize', 14, 'FontWeight', 'bold');
+title('A Selection Synodic Cycler Orbits', 'FontSize', 14, 'FontWeight', 'bold');
 grid on;
 grid minor;
 axis equal;
