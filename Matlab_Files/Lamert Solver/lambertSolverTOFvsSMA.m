@@ -1,6 +1,6 @@
 function [] = lambertSolverTOFvsSMA(R,mu,c,s)
 
-    %R is characteristic scale, typically radius of planet
+    % R is characteristic scale, typically radius of planet
     
     a_range = R*linspace(0,18,10000);
     
