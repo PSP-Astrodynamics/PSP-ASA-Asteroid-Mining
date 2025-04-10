@@ -29,10 +29,8 @@ a_E = 149597898;
 mu_S = 132712440017.99; % Gravitational Parameter of Sun
 % mu_E = 398600.4415;     % Gravitational Parameter of Earth
 N = 10;
-% TOF_hoh = 8.6176e+07;
-% period_E = 31558205; % sec
-% r1_vec = [-71901356.638820,      -7888916.570738,     129962325.986539]; %Intial position vector of sataliete km
-% r2_vec = [-22048919.391468,     -42955627.467596,     779979918.968054]; %Sataliet final position km
+
+
 r1_vec = r_E_vec(idx_AN,:); % Initial Position of the Earth
 r2_vec = r_H_vec(idx_AN,:); % Inital Position of Hektor
 
@@ -82,10 +80,6 @@ grid on
 grid minor
 hold off
 change_axis_from_Km_to_AU(true, false);
-
-% hold on
-% plotOrbit3(RAAN_trans, i_trans, omega_trans, pAB_2, e_AB_2, linspace(0,2*pi,1000), 'g', 1, 1, [0,0,0],0,1.5)
-
 
 
 %% plot
@@ -139,21 +133,6 @@ lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
 
 
 %% function
-
-function TOF_solutions = lambertSolver(a, c, s, mu)
-    % Define alpha0 and beta0
-    alpha0 = 2 * asin(sqrt(s ./ (2 * a)));  % radians
-    beta0 = 2 * asin(sqrt((s - c) ./ (2 * a)));  % radians
-
-    % Define the four equations
-    TOF1A = a^(3/2) * (alpha0 - sin(alpha0) - (beta0 - sin(beta0))) / sqrt(mu);
-    TOF1B = a^(3/2) * ((2 * pi - (alpha0) - sin(alpha0)) - (beta0 - sin(beta0))) / sqrt(mu);
-    TOF2A = a^(3/2) * (alpha0 - sin(alpha0) + (beta0) - sin(beta0)) / sqrt(mu);
-    TOF2B = a^(3/2) * ((2 * pi - (alpha0) - sin(alpha0)) + ((beta0) - sin(beta0))) / sqrt(mu);
-    
-    % answer key: [1A; 1B; 2A; 2B]
-    TOF_solutions = {'1A', '1B', '2A', '2B'; TOF1A, TOF1B, TOF2A, TOF2B};
-end
 
 function [] = plotOrbit3(RAAN, inc, omega, p, e, theta_star, color, scale, grade, c,arrow,W)
     
