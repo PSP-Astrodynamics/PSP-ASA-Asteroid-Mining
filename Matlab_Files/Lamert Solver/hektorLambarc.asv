@@ -26,9 +26,10 @@ r_E_vec = planetEphemeris(time,'Sun','Earth');
 %% lambert
 mu_e = 3.986e5; % Gravitational Parameter of Earth
 mu_S = 132712440017.99; % Gravitational Parameter of Sun
-r_earth = 149.9e6; % radius of earth orbit [km]
 
-r1_vec = r_E_vec(idx_AN,:); % Initial Position of the Earth
+r1_vec_i = r_E_vec(idx_AN,:); % Initial Position of the Earth
+stationDis = 500; % [km]
+r1_vec = r1_vec_i + r1_vec_i/norm(r1_vec_i) .* stationDis; % sets intial position to an arbitrary distance from earth in line with the sun
 r2_vec = r_target_vec(idx_AN,:); % Target Position of Hektor
 
 [a_trans, c, s, r1, r2] = lambertIntial(r1_vec,r2_vec,mu_S)
@@ -51,17 +52,17 @@ for index = 1:100
     e_solutions(index, :) = [e_AB_1, e_AB_2, e_AB_1other, e_AB_2other];
 
     % this is not good and assumes that the orbit around earth is circular
-    % and that they intersect at the end of r1 + radius above earth, most likly will break on
-    % full 3D earth has a circular orbit
+    % and that they intersect at the end of r1, most likly will break on
+    % full 3D
     v_orbit = sqrt(mu_S*(2/r1 - 1/a_trans(index)));
     h_orbit = sqrt(mu_S * [pAB_1, pAB_2, pAB_1other, pAB_2other]);
-    v_earth = sqrt(mu_S/r_earth);
-    h_earth = sqrt(mu_S * r_earth);
+    v_station = sqrt(mu_e*(2/stationDis - 1/stationDis));
+    h_station = sqrt(mu_e * stationDis);
     gamma_cycler = acos(h_orbit ./ (r1 .* v_orbit));
-    gamma_earth_scalar = acos(h_earth / (r_earth * v_earth));
-    gamma_earth_vector = [gamma_earth_scalar, gamma_earth_scalar, gamma_earth_scalar, gamma_earth_scalar];
-    gamma_inf = gamma_cycler-gamma_earth_vector;
-    v_inf(index,:) = sqrt(v_earth^2 + v_orbit^2 - 2 * v_orbit * v_earth * cos(gamma_inf));
+    gamma_station_scalar = acos(h_station / (stationDis * v_station));
+    gamma_station_vector = [gamma_station_scalar, gamma_station_scalar, gamma_station_scalar, gamma_station_scalar];
+    gamma_inf = gamma_cycler-gamma_station_vector;
+    v_inf(index,:) = sqrt(v_station^2 + v_orbit^2 - 2 * v_orbit * v_station * cos(gamma_inf));
 end
 
 % plot eccentricity solutions vs semi major axes
