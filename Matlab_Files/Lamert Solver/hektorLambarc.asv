@@ -67,16 +67,16 @@ end
 RA = 0;
 RB = 0;
 
-% Ra_index = 1:3:300;
-% for index = 1:100
-%     RA(:, Ra_index(index):Ra_index(index)+2) = plotCycler(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1), '#4DBEEE');
-%     RB(:, Ra_index(index):Ra_index(index)+2) = plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2');
-% end
+Ra_index = 1:3:300;
+for index = 1:100
+    RA(:, Ra_index(index):Ra_index(index)+2) = plotCycler(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1), '#4DBEEE');
+    RB(:, Ra_index(index):Ra_index(index)+2) = plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2');
+end
 
-% VA = RA(2,:) - RA(1,:);
-% VB = RB(2,:) - RB(1,:);
-% VE = r_E_vec(indx_AN+1,:) - r_E_vec(idx_AN,:);
-% deltaV = 
+VA = RA(2,:) - RA(1,:);
+VB = RB(2,:) - RB(1,:);
+VE = r_E_vec(indx_AN+1,:) - r_E_vec(idx_AN,:);
+deltaV = 
 
 % plot eccentricity solutions vs semi major axes
 figure(1)
@@ -110,10 +110,8 @@ plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)], 'Color', '#7E2F8E','LineWidth',
 % Create a 3D plot of the orbits
 hold on
 for index = 6:16
-    [x1,y1,z1] = plotCycler(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1), '#4DBEEE');
-    [x2, y2, z2] = plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2');
-    plot3(x1, y1, z1, 'Color', '#4DBEEE', 'LineWidth', 1.5);
-    plot3(x2, y2, z2, 'Color', '#1b10c2', 'LineWidth', 1.5);
+    plotCycler(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1), '#4DBEEE')
+    plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2')
 end
 
 % Add labels and title
