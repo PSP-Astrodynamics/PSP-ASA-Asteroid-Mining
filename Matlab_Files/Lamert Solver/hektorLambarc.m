@@ -64,19 +64,44 @@ for index = 1:100
     % v_inf(index,:) = sqrt(v_earth^2 + v_orbit^2 - 2 * v_orbit * v_earth * cos(gamma_inf));
 end
 
-RA = 0;
-RB = 0;
+RA = {};
+RB = {};
 
-% Ra_index = 1:3:300;
-% for index = 1:100
-%     RA(:, Ra_index(index):Ra_index(index)+2) = plotCycler(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1), '#4DBEEE');
-%     RB(:, Ra_index(index):Ra_index(index)+2) = plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2');
-% end
+for index = 1:100
+    [x1,y1,z1] = plotCycler(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1), '#4DBEEE');
+    [x2,y2,z2] = plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2');
+    RA{index} = [x1;y1;z1];
+    RB{index} = [x2;y2;z2];
+end
 
-% VA = RA(2,:) - RA(1,:);
-% VB = RB(2,:) - RB(1,:);
-% VE = r_E_vec(indx_AN+1,:) - r_E_vec(idx_AN,:);
-% deltaV = 
+VA = {};
+VB = {};
+
+for index = 1:100
+    R1A = RA{index};
+    R1B = RB{index};
+    VA{index} = (R1A(:,2) - R1A(:,1))./(365.25*24*3600*index/size(R1A,2));
+    VB{index} = (R1B(:,2) - R1B(:,1))./(365.25*24*3600*index/size(R1B,2));
+end
+
+VE = (r_E_vec(idx_AN+1,:) - r_E_vec(idx_AN,:))./((time(idx_AN+1)-time(idx_AN))*86400);
+
+delVAmag = {};
+delVBmag = {};
+delVA = {};
+delVB = {};
+
+for index = 1:100
+    VAtrans = VA{index}';
+    VBtrans = VB{index}';
+    delVAtrans = VAtrans - VE;
+    delVBtrans = VBtrans - VE;
+    delVA{index} = delVAtrans;
+    delVB{index} = delVBtrans;
+    delVAmag{index} = norm(delVAtrans);
+    delVBmag{index} = norm(delVBtrans);
+
+end
 
 % plot eccentricity solutions vs semi major axes
 figure(1)
@@ -111,7 +136,7 @@ plot3([0,r2_vec(1)],[0,r2_vec(2)],[0,r2_vec(3)], 'Color', '#7E2F8E','LineWidth',
 hold on
 for index = 6:16
     [x1,y1,z1] = plotCycler(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1), '#4DBEEE');
-    [x2, y2, z2] = plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2');
+    [x2,y2,z2] = plotCycler(e_solutions(index,2), r1_vec, r2_vec, r1, p_solutions(index,2), '#1b10c2');
     plot3(x1, y1, z1, 'Color', '#4DBEEE', 'LineWidth', 1.5);
     plot3(x2, y2, z2, 'Color', '#1b10c2', 'LineWidth', 1.5);
 end
@@ -131,5 +156,4 @@ legend('Hektor Orbit', 'Earth','Sun', 'Intial Position vector', 'Target Position
 
 % plotting tof vs sma
 lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
-
 
