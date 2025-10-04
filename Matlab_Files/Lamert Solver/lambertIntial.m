@@ -1,5 +1,5 @@
 function [a_trans, c, s, r1, r2] = lambertIntial(r1_vec,r2_vec,mu_S)
-% unit vectors
+% magnitude of vectors
 r1 = norm(r1_vec);
 r2 = norm(r2_vec);
 

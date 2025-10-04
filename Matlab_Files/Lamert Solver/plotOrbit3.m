@@ -1,4 +1,4 @@
-function [] = plotOrbit3(RAAN, inc, omega, p, e, theta_star, color, scale, grade, c,arrow,W)
+function [x, y, z, leng] = plotOrbit3(RAAN, inc, omega, p, e, theta_star, color, scale, grade, c,arrow,W)
     
     r_vec_xyz = zeros(3,length(theta_star));
     for n=1:length(theta_star)
@@ -18,13 +18,14 @@ function [] = plotOrbit3(RAAN, inc, omega, p, e, theta_star, color, scale, grade
     x = r_vec_xyz(1,:) + c(1);
     y = r_vec_xyz(2,:) + c(2);
     z = r_vec_xyz(3,:) + c(3);
+    leng = length(x);
     
 
-    plot3(x, y, z, 'Color', color, LineWidth=W)
-    hold on
-    if (arrow == 1)
-        plotOrbitWithArrows(x, y, z, length(x)/10, color, scale, grade)
-    end
-    hold on
+    % plot3(x, y, z, 'Color', color, LineWidth=W)
+    % hold on
+    % if (arrow == 1)
+    %     plotOrbitWithArrows(x, y, z, length(x)/10, color, scale, grade)
+    % end
+    % hold on
     
 end
