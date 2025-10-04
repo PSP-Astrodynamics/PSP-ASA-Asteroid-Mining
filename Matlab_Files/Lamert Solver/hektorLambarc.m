@@ -2,7 +2,7 @@ clc
 clear
 close all
 
- % Plot formatting
+% Plot formatting
 set(groot, 'defaultTextInterpreter', 'latex')
 set(groot, 'defaultAxesTickLabelInterpreter', 'latex')
 set(groot, 'defaultLegendInterpreter', 'latex')
@@ -156,4 +156,6 @@ legend('Hektor Orbit', 'Earth','Sun', 'Intial Position vector', 'Target Position
 
 % plotting tof vs sma
 lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
+
+% plotting delVmag vs. sma
 
