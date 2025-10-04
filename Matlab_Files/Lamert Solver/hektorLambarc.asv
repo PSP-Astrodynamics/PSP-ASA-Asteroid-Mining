@@ -158,18 +158,14 @@ legend('Hektor Orbit', 'Earth','Sun', 'Intial Position vector', 'Target Position
 lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
 
 % plotting delVmag vs. sma
-plotVA = cell2mat(delVAmag);
-plotVB = cell2mat(delVBmag);
 
 figure(4)
-hold on
-plot(a_trans, plotVA, 'bo')
-plot(a_trans, plotVB, 'r^')
+plot(a_trans, cell2mat(delVAmag), 'bo')
+plot(a_trans, cell2mat(delVBmag), 'r^')
 xlabel("SMA (km)")
 ylabel("Delta V mag (km/s)")
 title("Delta V mag vs. SMA")
 legend("Delta V of A solutions", "Delta V of B solutions")
-change_axis_from_Km_to_AU(false, true)
 grid on
-grid minor
+gird minor
 axis equal
