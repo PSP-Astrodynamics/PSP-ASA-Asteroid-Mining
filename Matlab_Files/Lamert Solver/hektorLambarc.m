@@ -154,7 +154,7 @@ figure(4)
 hold on
 plot(a_trans, plotVA, 'bo')
 plot(a_trans, plotVB, 'r^')
-xlabel("SMA (km)")
+xlabel("SMA (AU)")
 ylabel("Delta V mag (km/s)")
 title("Delta V mag vs. SMA")
 legend("Delta V of A solutions", "Delta V of B solutions")
