@@ -158,7 +158,6 @@ xlabel("SMA (km)")
 ylabel("Delta V mag (km/s)")
 title("Delta V mag vs. SMA")
 legend("Delta V of A solutions", "Delta V of B solutions")
-change_axis_from_Km_to_AU(false, true)
 grid on
 grid minor
-axis equal
+change_axis_from_Km_to_AU(true, false)
