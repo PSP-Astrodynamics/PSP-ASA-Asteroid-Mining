@@ -50,18 +50,7 @@ for index = 1:100
     e_AB_2other = sqrt(1 - (pAB_2other / a_trans(index)));
     e_solutions(index, :) = [e_AB_1, e_AB_2, e_AB_1other, e_AB_2other];
 
-    % this is not good and assumes that the orbit around earth is circular
-    % and that they intersect at the end of r1 + radius above earth, most likly will break on
-    % full 3D earth has a circular orbit
-    % v_orbit = sqrt(mu_S*(2/r1 - 1/a_trans(index)));
-    % h_orbit = sqrt(mu_S * [pAB_1, pAB_2, pAB_1other, pAB_2other]);
-    % v_earth = sqrt(mu_S/r_earth);
-    % h_earth = sqrt(mu_S * r_earth);
-    % gamma_cycler = acos(h_orbit ./ (r1 .* v_orbit));
-    % gamma_earth_scalar = acos(h_earth / (r_earth * v_earth));
-    % gamma_earth_vector = [gamma_earth_scalar, gamma_earth_scalar, gamma_earth_scalar, gamma_earth_scalar];
-    % gamma_inf = gamma_cycler-gamma_earth_vector;
-    % v_inf(index,:) = sqrt(v_earth^2 + v_orbit^2 - 2 * v_orbit * v_earth * cos(gamma_inf));
+    
 end
 
 RA = {};
