@@ -53,11 +53,12 @@ for index = 1:100
     
 end
 
+%% Delta V
 % calculating delta V in km/s
 VE = (r_E_vec(idx_AN+1,:) - r_E_vec(idx_AN,:))./((time(idx_AN+1)-time(idx_AN))*86400);
 [RA, RB, VA, VB, delVAmag, delVBmag, delVA, delVB] = deltaV(r1_vec, r2_vec, r1, e_solutions, p_solutions, VE);
 
-% plot eccentricity solutions vs semi major axes
+%% plot eccentricity solutions vs semi major axes
 figure(1)
 hold on
 plot(a_trans, e_solutions(:, 1), "o")
@@ -73,6 +74,7 @@ grid minor
 hold off
 change_axis_from_Km_to_AU(true, false);
 
+%% Plotting System
 % plotting the orbits of the body of intrest and Earth
 figure(2)
 hold on;
@@ -108,7 +110,7 @@ change_axis_from_Km_to_AU(true, true);
 % Add a legend
 legend('Hektor Orbit', 'Earth','Sun', 'Intial Position vector', 'Target Position vector', 'Location','southwest', FontSize = 10);
 
-% plotting tof vs sma
+%% plotting tof vs sma
 lambertSolverTOFvsSMA(1495978707/10,mu_S,c,s)
 
 % plotting delVmag vs. sma
