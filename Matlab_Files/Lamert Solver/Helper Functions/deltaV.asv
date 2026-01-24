@@ -1,5 +1,5 @@
 function [RA, RB, VA, VB, delVAmag, delVBmag, delVA, delVB] = deltaV(r1_vec, r2_vec, r1, e_solutions, p_solutions, VE)
-% values are in km or km/s
+% values are in km
 RA = {};
 RB = {};
 
