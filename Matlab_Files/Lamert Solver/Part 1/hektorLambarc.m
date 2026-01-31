@@ -29,7 +29,7 @@ mu_S = 132712440017.99; % Gravitational Parameter of Sun
 r_earth = 149.9e6; % radius of earth orbit [km]
 
 r1_vec = r_E_vec(idx_AN,:); % Initial Position of the Earth
-r2_vec = r_target_vec(idx_AN,:); % Target Position of Hektor
+r2_vec = r_target_vec(100,:); % Target Position of Hektor
 
 [a_trans, c, s, r1, r2] = lambertIntial(r1_vec,r2_vec,mu_S);
 
