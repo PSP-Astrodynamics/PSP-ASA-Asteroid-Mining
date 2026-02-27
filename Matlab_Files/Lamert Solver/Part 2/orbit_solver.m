@@ -3,18 +3,10 @@ function [orbit_matrix, cost]= orbit_solver(r1_vec,r2_vec)
     [char_star] = load_charecteristic_values();
 
     [delta_v,orbit_matrix]=lambert_solver(r1_vec,r2_vec);
-    
-    x_keplerian = zeros(size(orbit_matrix));
+   
+    orbital_period = sqrt((orbit_matrix(:,1).^3)./((char_star.mu)./(4*pi^2)));
 
-    for i=1:size(orbit_matrix,2)
-        [x_keplerian(:,i),~]=cartesian_to_keplerian(orbit_matrix(:,i),[0,0,1],[1,0,0],char_star.mu);
-    end
-    
-    for i=1:size(orbit_matrix,2)
-    [orbital_period(:,i),~] = sqrt((a^3)/((char_star.mu)/(4*pi^2)));
-    end
-
-    delta_v_mag = norm(delta_v);
+    delta_v_mag = sqrt(sum(delta_v.^2,2));
     
     cost = orbital_period .* delta_v_mag;
 
