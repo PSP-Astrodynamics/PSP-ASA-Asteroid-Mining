@@ -1,9 +1,9 @@
-function [Omega, theta, i] = orbitparameters(r1, r2)
+function [Omega, theta, i] = orbitparameters(r1_vec, r2_vec)
     
-    r1mag = norm(r1);
-    r1hat = r1/r1mag;
+    r1mag = norm(r1_vec);
+    r1hat = r1_vec/r1mag;
 
-    htrans = cross(r1, r2);
+    htrans = cross(r1_vec, r2_vec);
     htransmag = norm(htrans);
     hhat = htrans/htransmag;
     

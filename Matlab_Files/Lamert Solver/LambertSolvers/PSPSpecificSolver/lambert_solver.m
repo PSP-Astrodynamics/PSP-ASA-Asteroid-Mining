@@ -1,4 +1,4 @@
-function [orbit_matrix] = lambert_solver(r1_vec,r2_vec)
+function orbit_matrix = lambert_solver(r1_vec,r2_vec)
 
 char_values = load_characteristic_values();
 mu_S  = char_values.mu;
@@ -20,14 +20,19 @@ for index = 1:100
     e_AB_2 = sqrt(1 - (pAB_2 / a_trans(index)));
     e_AB_1other = sqrt(1 - (pAB_1other / a_trans(index)));
     e_AB_2other = sqrt(1 - (pAB_2other / a_trans(index)));
-    e_solutions(index, :) = [e_AB_1, e_AB_2, e_AB_1other, e_AB_2other]; 
+    e_solutions(index, :) = [e_AB_1, e_AB_2, e_AB_1other, e_AB_2other];
 end
 
 %constructing the state vector with orbital elements
 for index = 1:length(a_trans)
-    orbit_matrix(index,1) = a_trans(1); %semimajor axis
-    orbit_matrix(index,2) = e_solutions(1); %eccentricity
-    orbit_matrix(index,3) =  % inclination
-    orbit_matrix(index,4) = 
+    orbit_matrix(index,1) = a_trans(index); %semimajor axis
+    orbit_matrix(index,2) = e_solutions(index,1); %eccentricity
+    [omega, theta, inclination] = orbitparameters(r1_vec,r2_vec); %orbital elements
+    orbit_matrix(index,3) = inclination; 
+    orbit_matrix(index,4) = omega; %this omega is taken as RAAN
 
 
+    %longitude of periapsis to true anomaly
+    theta_star = acos(((p_solutions(index,1) / r1) - 1) / e_solutions(index,1)); %theta star is true anomaly, formula taken from PlotCycler
+    orbit_matrix(index,5) = theta_star;
+end
