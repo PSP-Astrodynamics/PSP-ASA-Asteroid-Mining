@@ -34,6 +34,7 @@ theta_star = acos(((p_solutions(index,1) / r1) - 1) / e_solutions(index,1)); %th
     orbit_matrix(index,5) = theta - theta_star;
     %longitude of periapsis to true anomaly
     orbit_matrix(index,6) = theta_star;
+    orbit_matrix(index,7) = p_solutions(index,1);
 end
 
 for index = 1+length(a_trans):2*length(a_trans)
@@ -46,4 +47,5 @@ for index = 1+length(a_trans):2*length(a_trans)
     orbit_matrix(index,5) = theta - theta_star;
     %longitude of periapsis to true anomaly
     orbit_matrix(index,6) = theta_star;
+    orbit_matrix(index,7) = p_solutions(index,2);
 end
