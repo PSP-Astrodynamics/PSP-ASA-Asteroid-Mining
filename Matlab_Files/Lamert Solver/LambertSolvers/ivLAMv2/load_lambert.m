@@ -1,5 +1,5 @@
 function [] = load_lambert()
-    dllDirectory_Path = convertStringsToChars(string(cd) + "\LambertSolvers\ivLamV2p41_738416p65617\matlabInterface\lib\");  %at distribution in this file near the driver, otherwise change here.
+    dllDirectory_Path = convertStringsToChars(string(cd) + "\LambertSolvers\ivLAMv2\ivLamV2p41_738416p65617\matlabInterface\lib\");  %at distribution in this file near the driver, otherwise change here.
     
     addpath(dllDirectory_Path) %add the path where the .dll resides
     

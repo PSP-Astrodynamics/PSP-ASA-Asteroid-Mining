@@ -21,11 +21,11 @@ function [x, y, z, leng] = plotOrbit3(RAAN, inc, omega, p, e, theta_star, color,
     leng = length(x);
     
 
-    % plot3(x, y, z, 'Color', color, LineWidth=W)
-    % hold on
-    % if (arrow == 1)
-    %     plotOrbitWithArrows(x, y, z, length(x)/10, color, scale, grade)
-    % end
-    % hold on
+    plot3(x, y, z, 'Color', color, LineWidth=W)
+    hold on
+    if (arrow == 1)
+        plotOrbitWithArrows(x, y, z, length(x)/10, color, scale, grade)
+    end
+    hold on
     
 end
