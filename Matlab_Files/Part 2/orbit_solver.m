@@ -6,7 +6,7 @@ function [orbit_matrix,cost,delta_v_mag]= orbit_solver(r1_vec,r2_vec)
 
     %magnitudes of position vectors
 
-    r1 = norm(r1_vec);
+    r1 = norm(r1_vec); %
     r2 = norm(r2_vec);
 
     load_characteristic_values();
