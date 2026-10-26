@@ -22,5 +22,4 @@ function [orbit_matrix,cost,delta_v_mag]= orbit_solver(r1_vec,r2_vec)
 
     cost = orbital_period .* delta_v_mag;
 
-    
 end

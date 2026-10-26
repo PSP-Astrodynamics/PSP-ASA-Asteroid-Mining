@@ -9,8 +9,7 @@ function OrbitGenerator(r1_mat,r2_mat)
 %   r1_vecs: Matrix of ephemerous positions (X,3)
 %   r2_vecs: Matrix of final positions (X,3)
 %
-%   Generates visuals for given orbits $testComment$
-%
+%   Generates visuals for given orbits 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialization
 
