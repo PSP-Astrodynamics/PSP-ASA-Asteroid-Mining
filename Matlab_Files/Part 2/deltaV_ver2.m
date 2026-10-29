@@ -5,6 +5,7 @@ RB = {};
 
 % calculating position vectors for orbits
 for index = 1:100
+    %THIS LINE DOES NOT MAKE SENSE
     [x1,y1,z1] = e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1);
     RA{index} = [x1;y1;z1];
 end

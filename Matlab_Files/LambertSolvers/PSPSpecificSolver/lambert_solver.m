@@ -3,13 +3,13 @@ function orbit_matrix = lambert_solver(r1_vec,r2_vec)
 char_values = load_characteristic_values();
 mu_S  = char_values.mu;
 
-n = 100; %number of revolutions for lambertInitial Solver, hardcoded 
+n = 100; %number of candidate orbits, multiple of EarthYears for lambertCandidateSetup, hardcoded 
 
-%coding chain of funciton to generate state vectors and delta v
-[a_trans, c, s, r1, r2] = lambertInitial(r1_vec,r2_vec,mu_S,n); 
+% Candidate semimajor axes for lambert solver to generate orbits for
+[a_trans, c, s, r1, r2] = lambertCandidateSetup(r1_vec,r2_vec,mu_S,n); 
 
 % Solving for P and E solutions
-for index = 1:100
+for index = 1:n
     p_sol = lambertSolverP(a_trans(index), c, s, r1, r2);
     pAB_1 = p_sol{2, 1};
     pAB_2 = p_sol{2, 2};
