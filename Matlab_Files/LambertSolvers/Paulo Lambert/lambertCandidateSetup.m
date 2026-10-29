@@ -26,7 +26,7 @@ function [a_trans, c, s, r1, r2] = lambertCandidateSetup(r1_vec,r2_vec,mu_S,n)
 r1 = norm(r1_vec);
 r2 = norm(r2_vec);
 
-c = norm(r2_vec - r1_vec);
+c = norm(r2_vec - r1_vec); 
 
 s = 1/2 * (r1 + r2 + c); 
 
