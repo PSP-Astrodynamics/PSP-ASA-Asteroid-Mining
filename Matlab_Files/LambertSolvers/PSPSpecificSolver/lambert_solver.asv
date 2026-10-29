@@ -1,11 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Function Description: 
+% 
+%   INPUT VARIABLES:
+%   NAME : Description. (unit) 
+%   r1_vec : Vector of the Earth's position with respect to the Sun. (km)
+%   r2_vec : Vector of the Target's position with respect to the Sun. (km)
+%
+%   OUTPUT VARIABLES:
+%   NAME : Description. (unit) 
+%   orbit_matrix : 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function orbit_matrix = lambert_solver(r1_vec,r2_vec)
 
 char_values = load_characteristic_values();
 mu_S  = char_values.mu;
 
-n = 100; %number of revolutions for lambertInitial Solver, hardcoded 
+n = 100; %number of candidate orbits, multiple of EarthYears for lambertCandidateSetup, hardcoded 
 
-% Matrix with 
+% Candidate semimajor axes for lambert solver to generate orbits for
 [a_trans, c, s, r1, r2] = lambertCandidateSetup(r1_vec,r2_vec,mu_S,n); 
 
 % Solving for P and E solutions
