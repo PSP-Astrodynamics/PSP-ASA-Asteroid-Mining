@@ -1,4 +1,10 @@
 function p_solution = lambertSolverP(a, c, s, r1, r2)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Description
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     alpha0 = 2 * real(asin(sqrt(s / (2 * a))));  % radians
     beta0 = 2 * asin(sqrt((s - c) / (2 * a)));  % radians
     alphaOther = 2 * pi - alpha0;
