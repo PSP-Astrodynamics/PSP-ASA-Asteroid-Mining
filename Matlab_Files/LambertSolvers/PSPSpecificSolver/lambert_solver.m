@@ -1,3 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Function Description: 
+% 
+%   INPUT VARIABLES:
+%   NAME : Description. (unit) 
+%   r1_vec : Vector of the Earth's position with respect to the Sun. (km)
+%   r2_vec : Vector of the Target's position with respect to the Sun. (km)
+%
+%   OUTPUT VARIABLES:
+%   NAME : Description. (unit) 
+%   orbit_matrix : 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function orbit_matrix = lambert_solver(r1_vec,r2_vec)
 
 char_values = load_characteristic_values();
