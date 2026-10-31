@@ -11,7 +11,7 @@ for index = 1:100
 end
 
 for index = 101:200
-    [x2,y2,z2] = e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1);
+    [x2,y2,z2] = e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1); %
     RB{index} = [x2;y2;z2];
 end
 
