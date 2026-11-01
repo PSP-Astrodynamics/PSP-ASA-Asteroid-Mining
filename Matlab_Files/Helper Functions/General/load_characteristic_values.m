@@ -1,7 +1,23 @@
 function [char_star] = load_charecteristic_values()
-    char_star.mu = 139348062043.343; %[ km3 / s2]
-    char_star.l = 149597870.691; %[km]  
-    char_star.t = sqrt(char_star.mu^-1 * char_star.l^3); %[s]
-    char_star.v = char_star.l/char_star.t; %[km/s]
-    char_star.a = char_star.v/char_star.t;%[km/s^2]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Function Description: This function returns dimensionless values for 
+% different constants
+%
+%   INPUT VARIABLES:
+%   NAME : Description. (unit) 
+%   
+%   OUTPUT VARIABLES:
+%   NAME : Description. (unit) 
+%   char_star.mu : gravitational parameter (GM) value of the sun (km^3/s^2)
+%   char_star_l : 1 AU (astronomical unit), the average distance of the
+%   earth to the sun (km)
+%   char_star.t : The period of earths orbit divided by 2*pi (s)
+%   char_star.v : the average speed of earths orbit divided by 2*pi (km/s)
+%   char_star.a : the magnitude of average acceleration of earth divided by 2*pi (km/s^2)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    char_star.mu = 139348062043.343; %(km^3/s^2) wrong value for mu sun(132712440017.99)?
+    char_star.l = 149597870.691; %(km)
+    char_star.t = sqrt(char_star.mu^-1 * char_star.l^3); %(s) 
+    char_star.v = char_star.l/char_star.t; %(km/s)
+    char_star.a = char_star.v/char_star.t; %(km/s^2)
 end
