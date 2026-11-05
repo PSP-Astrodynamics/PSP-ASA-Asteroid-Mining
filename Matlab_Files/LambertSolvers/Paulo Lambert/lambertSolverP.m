@@ -26,11 +26,17 @@ function p_solution = lambertSolverP(a, c, s, r1, r2)
 %  to the sun.
 %
 %   OUTPUT VARIABLES:   
-%   pAB_1 : 
-%   pAB_2 : 
-%   pAB_1other :
-%   pAB_2other : 
-% 
+%   pAB_1 : P for ellipse 1
+%   pAB_2 : P for ellipse 2
+%   pAB_1other : Repeated value for 1?
+%   pAB_2other : Repeated value for 2?
+%
+%
+%   NOTES:
+%   * pAB_1other and PAB_2other appear to be redundant.
+%   * Commented out lines of code refer to hyperbolic orbits.
+%
+% Code header written by Kai s
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     alpha0 = 2 * real(asin(sqrt(s / (2 * a))));  % radians
