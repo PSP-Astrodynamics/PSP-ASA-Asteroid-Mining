@@ -9,7 +9,8 @@
 %
 %   OUTPUT VARIABLES:
 %   NAME : Description. (unit) 
-%   orbit_matrix : Constructs the state vector for the orbits. (nil)
+%   orbit_matrix : Constructs the state vector for the orbits.
+%   (a(km),e(dimensionless),i(rads),omega(rads),w(rads),v(rads),p(km))
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function orbit_matrix = lambert_solver(r1_vec,r2_vec)

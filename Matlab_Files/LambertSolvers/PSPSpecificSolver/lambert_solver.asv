@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Function Description: This function outputs the state vector for the
-% orbits based on the r1 and r2 v
+% orbits based on the r1 and r2 vectors.
 % 
 %   INPUT VARIABLES:
 %   NAME : Description. (unit) 
@@ -9,7 +9,8 @@
 %
 %   OUTPUT VARIABLES:
 %   NAME : Description. (unit) 
-%   orbit_matrix : Constructs the state vector for the orbits
+%   orbit_matrix : Constructs the state vector for the orbits.
+%   (a,e,i,omega,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function orbit_matrix = lambert_solver(r1_vec,r2_vec)
@@ -63,3 +64,4 @@ for index = 1+length(a_trans):2*length(a_trans)
     orbit_matrix(index,6) = theta_star;
     orbit_matrix(index,7) = p_solutions(index-100,2);
 end
+
