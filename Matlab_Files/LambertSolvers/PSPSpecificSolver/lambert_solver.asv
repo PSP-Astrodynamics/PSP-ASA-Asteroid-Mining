@@ -6,11 +6,12 @@ mu_S  = char_values.mu;
 n = 100; %number of revolutions for lambertInitial Solver, hardcoded 
 
 % Matrix with 
-[a_trans, c, s, r1, r2] = lambertCandidateSetup(r1_vec,r2_vec,mu_S,n); % a_trans=semimajor axis
+[a_trans, c, s, r1, r2] = lambertCandidateSetup(r1_vec,r2_vec,mu_S,n); 
+a_trans = a_trans(a_trans >= s/2); %keeps only feasible candidates
+N = numel(a_trans);
 
-% Solving for P and E solutions      p = semilatus rectum, e = eccentricity
-
-for index = 1:n
+% Solving for P and E solutions
+for index = 1:N
     p_sol = lambertSolverP(a_trans(index), c, s, r1, r2);
     pAB_1 = p_sol{2, 1};
     pAB_2 = p_sol{2, 2};
@@ -39,14 +40,14 @@ theta_star = acos(((p_solutions(index,1) / r1) - 1) / e_solutions(index,1)); %th
 end
 
 for index = 1+length(a_trans):2*length(a_trans)
-    orbit_matrix(index,1) = a_trans(index-100); %semimajor axis
-    orbit_matrix(index,2) = e_solutions(index-100,2); %eccentricity 
+    orbit_matrix(index,1) = a_trans(index-N); %semimajor axis
+    orbit_matrix(index,2) = e_solutions(index-N,2); %eccentricity 
     [Omega, theta, inclination] = orbitparameters(r1_vec,r2_vec); %orbital elements
     orbit_matrix(index,3) = inclination; 
     orbit_matrix(index,4) = Omega; %this Omega is taken as RAAN
-    theta_star = acos(((p_solutions(index-100,1) / r1) - 1) / e_solutions(index-100,1)); %theta star is true anomaly, formula taken from PlotCycler
+    theta_star = acos(((p_solutions(index-N,1) / r1) - 1) / e_solutions(index-N,1)); %theta star is true anomaly, formula taken from PlotCycler
     orbit_matrix(index,5) = theta - theta_star;
     %longitude of periapsis to true anomaly
     orbit_matrix(index,6) = theta_star;
-    orbit_matrix(index,7) = p_solutions(index-100,2);
+    orbit_matrix(index,7) = p_solutions(index-N,2);
 end

@@ -1,9 +1,12 @@
 function p_solution = lambertSolverP(a, c, s, r1, r2)
-    alpha0 = 2 * real(asin(sqrt(s / (2 * a))));  % radians
+
+if a < s/2
+    error('Candidate semimajor axis is too small for an ellipse through both endpoints.');
+end
+    alpha0 = 2 * asin(sqrt(s / (2 * a)));  % radians
     beta0 = 2 * asin(sqrt((s - c) / (2 * a)));  % radians
     alphaOther = 2 * pi - alpha0;
     betaOther = 2 * pi - beta0;
-
     %alphaH = 2 * asinh(sqrt(s / (2 * a))); 
     %betaH = 2 * asinh(sqrt((s - c) / (2 * a)));
 
