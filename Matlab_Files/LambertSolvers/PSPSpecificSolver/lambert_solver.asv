@@ -33,7 +33,7 @@ for index = 1:length(a_trans)
     orbit_matrix(index,3) = inclination; 
     orbit_matrix(index,4) = Omega; %this Omega is taken as RAAN
 theta_star = acos(((p_solutions(index,1) / r1) - 1) / e_solutions(index,1)); %theta star is true anomaly, formula taken from PlotCycler
-    orbit_matrix(index,5) = theta - theta_star;
+    orbit_matrix(index,5) = theta - theta_star; %angle is used to orient periapsis
     %longitude of periapsis to true anomaly
     orbit_matrix(index,6) = theta_star;
     orbit_matrix(index,7) = p_solutions(index,1);
