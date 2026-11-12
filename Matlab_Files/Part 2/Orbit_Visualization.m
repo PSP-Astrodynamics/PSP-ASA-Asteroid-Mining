@@ -1,6 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PSP ASA
-% Gabby Smith
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Orbit Information (+)
@@ -46,7 +45,7 @@ char_star.l = AU; % [km]
 char_star.t = sqrt(char_star.l ^ 3 / char_star.mu); %[s]
 char_star.v = char_star.l / char_star.t; %[km / s]
 %% Search Ranges
-t0_yr_vec=linspace(9,11,200);
+t0_yr_vec=linspace(9,11,200); % 9 is the amount of years after the data represented by the transfer (xepoch_keplerian_E)
 ToF_yr_vec=linspace(1.0,2.5,200);
 
 dV_min = Inf; 
@@ -55,7 +54,19 @@ best_solution = struct();
 %% Nondimensionalize and Convert Elements
 %Lambert
 
+%Loading the library first
 load_lambert();
+
+dllDirectory_Path = ...
+    [fileparts(which('ivLam_zeroRev_multipleInputDLL')) filesep];
+
+addpath(dllDirectory_Path);
+iflag = ivLam_initializeDLL(dllDirectory_Path);
+
+if iflag ~= 0
+    error('Lambert library initialization failed. Status: %d', iflag);
+end
+
 for t0_yr = t0_yr_vec
     for ToF_yr = ToF_yr_vec
 
