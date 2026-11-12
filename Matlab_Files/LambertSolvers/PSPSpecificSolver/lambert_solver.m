@@ -9,7 +9,8 @@
 %
 %   OUTPUT VARIABLES:
 %   NAME : Description. (unit) 
-%   orbit_matrix : Constructs the state vector for the orbits. (nil)
+%   orbit_matrix : Constructs the state vector for the orbits.
+%   (a(km),e(dimensionless),i(rads),omega(rads),w(rads),v(rads),p(km))
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function orbit_matrix = lambert_solver(r1_vec,r2_vec)
@@ -44,9 +45,8 @@ for index = 1:length(a_trans)
     [Omega, theta, inclination] = orbitparameters(r1_vec,r2_vec); %orbital elements
     orbit_matrix(index,3) = inclination; 
     orbit_matrix(index,4) = Omega; %this Omega is taken as RAAN
-theta_star = acos(((p_solutions(index,1) / r1) - 1) / e_solutions(index,1)); %theta star is true anomaly, formula taken from PlotCycler
-    orbit_matrix(index,5) = theta - theta_star;
-    %longitude of periapsis to true anomaly
+    theta_star = acos(((p_solutions(index,1) / r1) - 1) / e_solutions(index,1)); %theta star is true anomaly, formula taken from PlotCycler
+    orbit_matrix(index,5) = theta - theta_star; %argument of periapsis = argument of latitude - true anomaly
     orbit_matrix(index,6) = theta_star;
     orbit_matrix(index,7) = p_solutions(index,1);
 end
@@ -58,8 +58,7 @@ for index = 1+length(a_trans):2*length(a_trans)
     orbit_matrix(index,3) = inclination; 
     orbit_matrix(index,4) = Omega; %this Omega is taken as RAAN
     theta_star = acos(((p_solutions(index-100,1) / r1) - 1) / e_solutions(index-100,1)); %theta star is true anomaly, formula taken from PlotCycler
-    orbit_matrix(index,5) = theta - theta_star;
-    %longitude of periapsis to true anomaly
+    orbit_matrix(index,5) = theta - theta_star; %argument of periapsis = argument of latitude - true anomaly
     orbit_matrix(index,6) = theta_star;
     orbit_matrix(index,7) = p_solutions(index-100,2);
 end
