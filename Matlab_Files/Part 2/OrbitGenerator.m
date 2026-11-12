@@ -1,4 +1,4 @@
-function OrbitGenerator(r1_mat,r2_mat)
+function OrbitGenerator(r1_mat,r2_mat, VE_mat)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   Orbit Generator
@@ -18,7 +18,7 @@ cost_vec = zeros(size(r1_mat,1)); % Cost Function Vector
 deltav_vec = zeros(size(r1_mat,1)); % DeltaV Vector (km/s)
 %% Orbit Matrix Generation
 for i = 1:size(orbit_matrix,1)
-    [orb,cost,deltav] = orbit_solver(r1_mat(i,:),r2_mat(i,:)); % Orbit Solver
+    [orb,cost,deltav] = orbit_solver(r1_mat(i,:),r2_mat(i,:),VE_mat(i,:)); % Orbit Solver
     cost_vec(i) = cost; % Individual Cost Vector Assignment
     orbit_matrix(i,:) = orb; % Individual Orbital Matrix Assignment
     deltav_vec(i) = deltav; % Individual Deltav Assignment
