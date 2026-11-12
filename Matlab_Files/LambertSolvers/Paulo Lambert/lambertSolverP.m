@@ -43,7 +43,6 @@ function p_solution = lambertSolverP(a, c, s, r1, r2)
     beta0 = 2 * asin(sqrt((s - c) / (2 * a)));  % radians
     alphaOther = 2 * pi - alpha0;
     betaOther = 2 * pi - beta0;
-
     %alphaH = 2 * asinh(sqrt(s / (2 * a))); 
     %betaH = 2 * asinh(sqrt((s - c) / (2 * a)));
 
