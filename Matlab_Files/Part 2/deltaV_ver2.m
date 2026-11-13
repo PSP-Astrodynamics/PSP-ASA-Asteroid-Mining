@@ -4,9 +4,12 @@ RA = {};
 RB = {};
 
 % calculating position vectors for orbits
+%REWRITING FOLLOWING LINES USING HAND-SOLVED DYNAMICS, WILL USE KEPLERIAN
+%TO CARTESIAN dcm
 for index = 1:100
-    %THIS LINE DOES NOT MAKE SENSE
-    [x1,y1,z1] = e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1);
+    %Assuming r1 
+    [x1,y1,z1] = keplerian_to_cartesian(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1));
+    %[x1,y1,z1] = e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1);
     RA{index} = [x1;y1;z1];
 end
 
@@ -19,7 +22,7 @@ VA = {};
 VB = {};
 
 % calculate the velocity at the point t = 0
-for index = 1:100
+for index = 1:100 
     R1A = RA{index};
     VA{index} = (R1A(:,2) - R1A(:,1))./(365.25*24*3600*index/size(R1A,2));
 end
