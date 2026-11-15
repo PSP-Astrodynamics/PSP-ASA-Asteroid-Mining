@@ -1,57 +1,36 @@
-function [RA, RB, VA, VB, delVAmag, delVBmag, delVA, delVB] = deltaV_ver2(r1_vec, r2_vec, r1, e_solutions, p_solutions, VE)
-% values are in km or km/s
-RA = {};
-RB = {};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Function Description: This function calculates the impulsive delta V
+% required for a maneuver between escaping Earth's escape velocity and
+% being inserted into the Cycler orbit.
+% 
+%   INPUT VARIABLES:
+%   NAME : Description. (unit) 
+%   r1_vec : Vector of the Earth's position with respect to the Sun. (km) 
+%   otbit_matrix : State vector containing the state of Lambert Solutions
+%   from the lambert Solver
+%  
+%   OUTPUT VARIABLES:
+%   NAME : Description. (unit) 
+%   delVAmag: Magnitude of delta V for A solutions
+%   delVA: implusive delta V vector in heliocentric inertial coordinates
+%   delVBmag: Manutude of delta V for B solutions
+%   delVB: implusive delta V vector in heliocentric inertial coordinates
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [delVAmag, delVBmag, delVA, delVB] = deltaV_ver2(r1_vec,orbit_matrix)
 
-% calculating position vectors for orbits
-%REWRITING FOLLOWING LINES USING HAND-SOLVED DYNAMICS, WILL USE KEPLERIAN
-%TO CARTESIAN dcm
-for index = 1:100
-    %Assuming r1 
-    [x1,y1,z1] = keplerian_to_cartesian(e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1));
-    %[x1,y1,z1] = e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1);
-    RA{index} = [x1;y1;z1];
-end
+%Loading characteristic values
+char_values = load_characteristic_values();
 
-for index = 101:200
-    [x2,y2,z2] = e_solutions(index,1), r1_vec, r2_vec, r1, p_solutions(index,1); 
-    RB{index} = [x2;y2;z2];
-end
+% Unpacking the orbit matrix semi major axes for required elements
+a = orbit_matrix(:,1); % All semimajor axes from orbit matrix
 
-VA = {};
-VB = {};
+%creating a vector of velocities in the cycler orbit perifocal frame 
+v = sqrt(charValues.mu*((2./r1_vec)-(1./a))); 
 
-% calculate the velocity at the point t = 0
-for index = 1:100 
-    R1A = RA{index};
-    VA{index} = (R1A(:,2) - R1A(:,1))./(365.25*24*3600*index/size(R1A,2));
-end
+%converting the velocities to heliocentric inertial frame
 
-for index = 101:200
-    R1B = RB{index};
-    VB{index} = (R1B(:,2) - R1B(:,1))./(365.25*24*3600*index/size(R1B,2));
-end
 
-delVAmag = {};
-delVBmag = {};
-delVA = {};
-delVB = {};
 
-% calculate the deltaV to get into each orbit at t = 0
-for index = 1:100
-    VAtrans = VA{index}';
-    delVAtrans = VAtrans - VE;
-    delVA{index} = delVAtrans;
-    delVAmag{index} = norm(delVAtrans);
 
-end
-
-for index = 101:200
-    VBtrans = VB{index}';
-    delVBtrans = VBtrans - VE;
-    delVB{index} = delVBtrans;
-    delVBmag{index} = norm(delVBtrans);
-
-end
 
 end

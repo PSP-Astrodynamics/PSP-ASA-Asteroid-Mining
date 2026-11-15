@@ -31,8 +31,8 @@ xepoch_keplerian_A = [a_A; e_A; i_A; Omega_A; omega_A; M_A];
 %% Initialization
 
 % Inputs
-t0_yr = 8; % [yr] time until start of transfer
-ToF_yr = 6; % [yr] transfer time of flight
+t0_yr = 0; % [yr] time until start of transfer
+ToF_yr = 17; % [yr] transfer time of flight
 
 % Physical constants
 AU = 149597898; % [km]
