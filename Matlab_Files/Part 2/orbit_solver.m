@@ -6,6 +6,16 @@ function [orbit_matrix,cost,delta_v_mag]= orbit_solver(r1_vec,r2_vec)
 
     %magnitudes of position vectors
 
+    for orbit = orbit_matrix(1:100)
+        e = orbit(2);
+        W = orbit(4);
+        inc = orbit(3);
+        w = orbit(5);
+        p = orbit(7);
+        plotOrbit3(W, inc, w, p, e, linspace(0,2 * pi, 200), "b", 0.5, 1, [0,0,0],  1, 1);
+    end 
+    
+       
     r1 = norm(r1_vec);
     r2 = norm(r2_vec);
 
