@@ -13,21 +13,32 @@
 %   NAME : Description. (unit) 
 %   delVAmag: Magnitude of delta V for A solutions
 %   delVA: implusive delta V vector in heliocentric inertial coordinates
-%   delVBmag: Manutude of delta V for B solutions
+%   delVBmag: Magnitude of delta V for B solutions
 %   delVB: implusive delta V vector in heliocentric inertial coordinates
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [delVAmag, delVBmag, delVA, delVB] = deltaV_ver2(r1_vec,orbit_matrix)
-
+function [v_perifocal] = deltaV_ver2(r1_vec,orbit_matrix)
+%Original function outputs: [delVAmag, delVBmag, delVA, delVB]
 %Loading characteristic values
 char_values = load_characteristic_values();
 
-% Unpacking the orbit matrix semi major axes for required elements
-a = orbit_matrix(:,1); % All semimajor axes from orbit matrix
+% Unpacking the orbit matrix for required elements
+theta_star = orbit_matrix(:,6); % TrueAnomaly
+p = orbit_matrix(:,7); %semilatus rectum
+e = orbit_matrix(:,2);
+
+v_p = []; %empty array for 'p' component of velocity
+v_e = []; %empty array for 'e' component of velocity
+v_z = []; %empty array for 'z' component of velocity
 
 %creating a vector of velocities in the cycler orbit perifocal frame 
-v = sqrt(charValues.mu*((2./r1_vec)-(1./a))); 
+for solutionIndex = 1:size(orbit_matrix,1)
+    v_p(solutionIndex) = -(sqrt(char_values.mu ./ p(solutionIndex))) .* sin(theta_star(solutionIndex));
+    v_e(solutionIndex) = (sqrt(char_values.mu ./ p(solutionIndex))) .* (e(solutionIndex) + sin(theta_star(solutionIndex)));
+    v_z(solutionIndex) = 0; %velocity component in the plane normal to the elliptical orbit
+    v_perifocal = [v_p ;v_e ;v_z]'; %CHECKPOINT, SENSE-MAKE THESE VALUES WITH HAND CALCULATED VALUES
+end
 
-%converting the velocities to heliocentric inertial frame
+%converting perifocal velocities to heliocentric inertial cartesian frame
 
 
 
