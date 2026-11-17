@@ -1,4 +1,4 @@
-function [x_cartesian] = orb2cartOrig(a,ecc,inc,RAAN,argp,f,mu)
+function [x_cartesian] = orb2cartOrig(a,ecc,inc,RAAN,argp,theta_star,mu)
 % orb2cart converts Keplerian orbital elements into Cartesian position
 % and velocity. Distances will be provided in km, velocities provided in
 % km/s, and angles will be given in degrees. This function is only
@@ -7,9 +7,9 @@ function [x_cartesian] = orb2cartOrig(a,ecc,inc,RAAN,argp,f,mu)
 % Constants
 p = a*(1-ecc^2);
 hmag = sqrt(p*mu);
-rmag = (hmag^2/mu)/(1+ecc*cos(f));
-rVec = [rmag*cos(f), rmag*sin(f), 0];
-vVec = [-(mu/hmag)*sin(f), (mu/hmag)*(ecc+cos(f)), 0];
+rmag = (hmag^2/mu)/(1+ecc*cos(theta_star));
+rVec = [rmag*cos(theta_star), rmag*sin(theta_star), 0];
+vVec = [-(mu/hmag)*sin(theta_star), (mu/hmag)*(ecc+cos(theta_star)), 0];
 DCM313 = D313(RAAN,inc,argp);
 r = DCM313 * rVec';
 v = DCM313 * vVec';
